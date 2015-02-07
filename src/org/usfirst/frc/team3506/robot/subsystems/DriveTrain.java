@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveTrain extends Subsystem {
     // Talons in clockwise order (with 3 motors on either side)
-	private Talon motor1, motor2, motor3, motor4, motor5, motor6;
+	private Talon motor1, /*motor2*/ motor3, motor4, /*motor5*/ motor6;
 	private Encoder leftEncoder, rightEncoder;
 	public DriveTrain(boolean hexWheel){
 		motor1 = new Talon(RobotMap.TALON_RIGHT_FRONT_WHEEL_PORT);
@@ -25,7 +25,6 @@ public class DriveTrain extends Subsystem {
 		rightEncoder = new Encoder(RobotMap.ENCODER_RIGHT_DRIVE_TRAIN_PORT[0], RobotMap.ENCODER_RIGHT_DRIVE_TRAIN_PORT[1]);
 		leftEncoder.setDistancePerPulse(RobotMap.DISTANCE_PER_PULSE);
 		rightEncoder.setDistancePerPulse(RobotMap.DISTANCE_PER_PULSE);
-		
 	}
 	public void binaryJoystickDrive(double leftY, double rightY){
 		moveRightTrain(rightY);
@@ -33,12 +32,10 @@ public class DriveTrain extends Subsystem {
 	}
 	public void moveRightTrain(double speed){
 		motor1.set(speed);
-		//motor2.set(speed); // optional comment-out
 		motor3.set(speed);
 	}
 	public void moveLeftTrain(double speed){
 		motor4.set(speed);
-		//motor5.set(speed); // optional comment-out
 		motor6.set(speed);
 	}
 	public void resetEncoders(){

@@ -12,7 +12,7 @@ public class LiftElevatorCommand extends Command {
     public LiftElevatorCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.elevatorObject);
+    	requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,12 @@ public class LiftElevatorCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevatorObject.liftElevator();
+    	Robot.elevator.liftElevator();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevatorObject.getUpperSwitch();
+        return Robot.elevator.getUpperSwitch();
     }
 
     // Called once after isFinished returns true

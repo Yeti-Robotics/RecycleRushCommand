@@ -11,7 +11,7 @@ public class TurnOnCompressorCommand extends Command {
     public TurnOnCompressorCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.compressorObject);
+    	requires(Robot.compressor);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +20,7 @@ public class TurnOnCompressorCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		Robot.compressorObject.turnOnCompressor();
+    		Robot.compressor.turnOnCompressor();
     }
 
     // Make this return true when this Command no longer needs to run execute()

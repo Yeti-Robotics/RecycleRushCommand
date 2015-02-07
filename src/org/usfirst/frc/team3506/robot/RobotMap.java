@@ -32,10 +32,10 @@ public class RobotMap {
 	
 	// Talon ports (PWM)
 	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 0;
-	//public static final int TALON_LEFT_MIDDLE_WHEEL_PORT = 1;
+	//public static final int TALON_LEFT_MIDDLE_WHEEL_PORT = 7;
 	public static final int TALON_LEFT_REAR_WHEEL_PORT = 1;
 	public static final int TALON_RIGHT_FRONT_WHEEL_PORT = 2;
-	//public static final int TALON_RIGHT_MIDDLE_WHEEL_PORT = ?;
+	//public static final int TALON_RIGHT_MIDDLE_WHEEL_PORT = 8;
 	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 3;
 	public static final int TALON_RIGHT_ARM_PORT = 5;
 	public static final int TALON_LEFT_ARM_PORT = 4;
@@ -49,4 +49,5 @@ public class RobotMap {
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
 	public static final double ROBOT_SPEED_MOD_INC = 0.01;
+	public static final double DEGREES_PER_PULSE = 4;
 }

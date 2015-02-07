@@ -23,8 +23,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain driveTrain;
 	public static ClawArm clawArm;
-	public static RobotCompressor compressorObject;
-	public static Elevator elevatorObject;
+	public static RobotCompressor compressor;
+	public static Elevator elevator;
 
     Command autonomousCommand;
 
@@ -35,8 +35,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		driveTrain = new DriveTrain(true);
 		clawArm = new ClawArm();
-		compressorObject = new RobotCompressor();
-		elevatorObject = new Elevator();
+		compressor = new RobotCompressor();
+		elevator = new Elevator();
     	// OI always constructed last
     	oi = new OI();
     }
