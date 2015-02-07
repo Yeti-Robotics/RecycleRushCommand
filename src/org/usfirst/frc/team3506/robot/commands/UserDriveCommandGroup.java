@@ -26,6 +26,6 @@ public class UserDriveCommandGroup extends CommandGroup {
         // arm.
     	addParallel(new BinaryJoystickDriveCommand());
     	addParallel(new OperateArmCommand());
-    	addParallel(new ToggleCompressorCommand());
+    	addParallel(new TurnOnCompressorCommand());
     }
 }

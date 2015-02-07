@@ -48,5 +48,5 @@ public class RobotMap {
 	
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
-	public static final double ROBOT_SPEED_MOD_INC = 0.015;
+	public static final double ROBOT_SPEED_MOD_INC = 0.01;
 }

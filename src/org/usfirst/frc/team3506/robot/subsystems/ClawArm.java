@@ -35,8 +35,8 @@ public class ClawArm extends Subsystem {
     	rightClaw.set(Value.kForward);
     }
     public void openClaw(){
-    	leftClaw.set(Value.kOff);
-    	rightClaw.set(Value.kOff);
+    	leftClaw.set(Value.kReverse);
+    	rightClaw.set(Value.kReverse);
     }
     public void setBeltMotor(double speed){
     	beltMotor.set(speed);

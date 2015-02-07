@@ -5,8 +5,9 @@ import org.usfirst.frc.team3506.robot.commands.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.RestartSchedulerCommandGroup;
-import org.usfirst.frc.team3506.robot.commands.ToggleCompressorCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.UniversalDriveCommand;
+import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,9 +32,11 @@ public class OI {
 		
 		// Left Drive Joystick
 		setJoystickButtonCommand(leftDriveJoy, 1, new RestartSchedulerCommandGroup());
-		setJoystickButtonCommand(leftDriveJoy, 9, new ToggleCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOnCompressorCommand());
 
 		// Right Drive Joystick
+		setJoystickButtonCommand(rightDriveJoy, 1, new UserDriveCommandGroup());
 		setJoystickButtonCommand(rightDriveJoy, 2, new LiftElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 3, new LowerElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.25));

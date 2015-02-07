@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ToggleCompressorCommand extends Command {
-	private static boolean isOn = false;
-    public ToggleCompressorCommand() {
+public class TurnOffCompressorCommand extends Command {
+
+    public TurnOffCompressorCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.compressorObject);
@@ -21,12 +21,7 @@ public class ToggleCompressorCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(isOn){
-    		Robot.compressorObject.turnOffCompressor();
-    	}else{
-    		Robot.compressorObject.turnOnCompressor();
-    	}
-    	isOn = !isOn;
+    	Robot.compressorObject.turnOffCompressor();
     }
 
     // Make this return true when this Command no longer needs to run execute()
