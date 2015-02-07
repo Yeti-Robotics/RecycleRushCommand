@@ -4,6 +4,7 @@ import org.usfirst.frc.team3506.robot.commands.CloseClawCommand;
 import org.usfirst.frc.team3506.robot.commands.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.OpenClawCommand;
+import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.RestartSchedulerCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.UniversalDriveCommand;
@@ -44,6 +45,7 @@ public class OI {
 		// Arm Joystick
 		setJoystickButtonCommand(armJoy, 1, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 2, new OpenClawCommand());
+		setJoystickButtonCommand(armJoy, 8, new ResetArmEncoderCommand());
 	}
 	public double getLeftX() {
 		return deadZoneMod(leftDriveJoy.getX());
@@ -64,7 +66,7 @@ public class OI {
 		return deadZoneMod(armJoy.getZ());
 	}
 	private double deadZoneMod(double joyVal){
-		if (Math.abs(joyVal) > 0.1) {
+		if (Math.abs(joyVal) > RobotMap.JOYSTICK_DEADZONE) {
 			return joyVal;
 		} else {
 			return 0.0;

@@ -7,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class OperateArmCommand extends Command {
+public class ResetArmEncoderCommand extends Command {
 
-    public OperateArmCommand() {
+    public ResetArmEncoderCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.arm);
-    	requires(Robot.claw);
     }
 
     // Called just before this Command runs the first time
@@ -22,13 +21,12 @@ public class OperateArmCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.moveArm(Robot.oi.getArmY());
-    	Robot.claw.setBeltMotor(Robot.oi.getArmZ());
+    	Robot.arm.resetArmEncoder();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

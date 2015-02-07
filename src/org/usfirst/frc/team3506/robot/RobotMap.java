@@ -45,9 +45,11 @@ public class RobotMap {
 	public static final int JOYSTICK_LEFT_PORT = 1;
 	public static final int JOYSTICK_RIGHT_PORT = 2;
 	public static final int JOYSTICK_ARM_PORT = 0;
+	public static final double JOYSTICK_DEADZONE = 0.05;
 	
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
 	public static final double ROBOT_SPEED_MOD_INC = 0.01;
 	public static final double DEGREES_PER_PULSE = 4;
+	
 }

@@ -7,28 +7,34 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class OperateArmCommand extends Command {
-
-    public OperateArmCommand() {
+public class AutonomousMoveArmCommand extends Command {
+	private double targetDegreePosition, currentDegreePosition, speed;
+    public AutonomousMoveArmCommand(double degrees, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.arm);
-    	requires(Robot.claw);
+    	targetDegreePosition = degrees;
+    	this.speed = speed;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	currentDegreePosition = Robot.arm.getArmEncoderDistance();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.moveArm(Robot.oi.getArmY());
-    	Robot.claw.setBeltMotor(Robot.oi.getArmZ());
+    	if(currentDegreePosition>targetDegreePosition){
+    		Robot.arm.moveArm(-speed); // Reverse depending on default position (up or down)
+    	}else{
+    		Robot.arm.moveArm(speed);
+    	}
+    	currentDegreePosition = Robot.arm.getArmEncoderDistance();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Math.abs(currentDegreePosition-targetDegreePosition)<10;
     }
 
     // Called once after isFinished returns true

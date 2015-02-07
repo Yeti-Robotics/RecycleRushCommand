@@ -2,7 +2,8 @@
 package org.usfirst.frc.team3506.robot;
 
 import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
-import org.usfirst.frc.team3506.robot.subsystems.ClawArm;
+import org.usfirst.frc.team3506.robot.subsystems.Arm;
+import org.usfirst.frc.team3506.robot.subsystems.Claw;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3506.robot.subsystems.Elevator;
 import org.usfirst.frc.team3506.robot.subsystems.RobotCompressor;
@@ -22,7 +23,8 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static DriveTrain driveTrain;
-	public static ClawArm clawArm;
+	public static Arm arm;
+	public static Claw claw;
 	public static RobotCompressor compressor;
 	public static Elevator elevator;
 
@@ -34,7 +36,8 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		driveTrain = new DriveTrain(true);
-		clawArm = new ClawArm();
+		arm = new Arm();
+		claw = new Claw();
 		compressor = new RobotCompressor();
 		elevator = new Elevator();
     	// OI always constructed last
