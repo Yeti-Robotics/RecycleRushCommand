@@ -6,6 +6,9 @@ import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.RestartSchedulerCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.TurnBeltMotorReverseCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnOffBeltMotorCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnOnBeltMotorCommand;
 import org.usfirst.frc.team3506.robot.commands.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
@@ -32,8 +35,8 @@ public class OI {
 		// Commands and buttons
 		
 		// Left Drive Joystick
-		setJoystickButtonCommand(leftDriveJoy, 1, new RestartSchedulerCommandGroup());
-		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 8, new RestartSchedulerCommandGroup());
+		/*setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOnCompressorCommand());
 
 		// Right Drive Joystick
@@ -43,16 +46,20 @@ public class OI {
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.25));
 		
 		// Arm Joystick
+		 * */
 		setJoystickButtonCommand(armJoy, 1, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 2, new OpenClawCommand());
 		setJoystickButtonCommand(armJoy, 8, new ResetArmEncoderCommand());
+		setJoystickButtonCommand(armJoy, 10, new TurnOnBeltMotorCommand());
+		setJoystickButtonCommand(armJoy, 11, new TurnOffBeltMotorCommand());
+		setJoystickButtonCommand(armJoy, 9, new TurnBeltMotorReverseCommand());
 		
 	}
 	public double getLeftX() {
 		return deadZoneMod(leftDriveJoy.getX());
 	}
 	public double getLeftY(){
-		return deadZoneMod(leftDriveJoy.getY());
+		return -deadZoneMod(leftDriveJoy.getY());
 	}
 	public double getRightX(){
 		return deadZoneMod(rightDriveJoy.getX());

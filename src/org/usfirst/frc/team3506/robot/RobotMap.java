@@ -36,7 +36,7 @@ public class RobotMap {
 	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 3;
 	public static final int TALON_RIGHT_ARM_PORT = 5;
 	public static final int TALON_LEFT_ARM_PORT = 4;
-	public static final int TALON_CLAW_BELT_PORT = 6;
+	public static final int SPIKE_CLAW_BELT_PORT = 0;
 	
 	// Joysticks
 	public static final int JOYSTICK_LEFT_PORT = 1;
