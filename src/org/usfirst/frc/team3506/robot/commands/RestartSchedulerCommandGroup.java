@@ -25,6 +25,6 @@ public class RestartSchedulerCommandGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new RebootSchedulerCommand());
-    	addSequential(new BinaryJoystickDriveCommand());
+    	addSequential(new UserDriveCommandGroup());
     }
 }

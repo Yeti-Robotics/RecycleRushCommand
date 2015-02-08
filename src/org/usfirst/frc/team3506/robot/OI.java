@@ -46,6 +46,7 @@ public class OI {
 		setJoystickButtonCommand(armJoy, 1, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 2, new OpenClawCommand());
 		setJoystickButtonCommand(armJoy, 8, new ResetArmEncoderCommand());
+		
 	}
 	public double getLeftX() {
 		return deadZoneMod(leftDriveJoy.getX());

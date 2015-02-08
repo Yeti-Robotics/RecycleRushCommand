@@ -26,9 +26,6 @@ public class RobotMap {
 	public static final int[] SOLENOID_RIGHT_CLAW_PORT = {2,3};
 	public static final int[] SOLENOID_LIFTER_PORT1 = {4,5};
 	public static final int[] SOLENOID_LIFTER_PORT2 = {6,7};
-	//public static final int[] SOLENOID_RIGHT_REAR_LIFTER_PORT = {6,7};
-	
-	
 	
 	// Talon ports (PWM)
 	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 0;
@@ -51,5 +48,4 @@ public class RobotMap {
 	public static final double ROBOT_DIAMETER_FT = 2.125;
 	public static final double ROBOT_SPEED_MOD_INC = 0.01;
 	public static final double DEGREES_PER_PULSE = 4;
-	
 }
