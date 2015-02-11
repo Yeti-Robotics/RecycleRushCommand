@@ -1,15 +1,13 @@
 package org.usfirst.frc.team3506.robot;
 
 import org.usfirst.frc.team3506.robot.commands.CloseClawCommand;
-import org.usfirst.frc.team3506.robot.commands.LiftElevatorCommand;
-import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.RestartSchedulerCommandGroup;
-import org.usfirst.frc.team3506.robot.commands.TurnBeltMotorReverseCommand;
-import org.usfirst.frc.team3506.robot.commands.TurnOffBeltMotorCommand;
-import org.usfirst.frc.team3506.robot.commands.TurnOnBeltMotorCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnForwardBeltCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnOffBeltCommand;
 import org.usfirst.frc.team3506.robot.commands.TurnOnCompressorCommand;
+import org.usfirst.frc.team3506.robot.commands.TurnReverseBeltCommand;
 import org.usfirst.frc.team3506.robot.commands.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
 
@@ -36,24 +34,23 @@ public class OI {
 		
 		// Left Drive Joystick
 		setJoystickButtonCommand(leftDriveJoy, 8, new RestartSchedulerCommandGroup());
-		/*setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOnCompressorCommand());
 
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 1, new UserDriveCommandGroup());
-		setJoystickButtonCommand(rightDriveJoy, 2, new LiftElevatorCommand());
-		setJoystickButtonCommand(rightDriveJoy, 3, new LowerElevatorCommand());
+		//setJoystickButtonCommand(rightDriveJoy, 2, new LiftElevatorCommand());
+		//setJoystickButtonCommand(rightDriveJoy, 3, new LowerElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.25));
 		
 		// Arm Joystick
-		 * */
+		
 		setJoystickButtonCommand(armJoy, 1, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 2, new OpenClawCommand());
-		setJoystickButtonCommand(armJoy, 8, new ResetArmEncoderCommand());
-		setJoystickButtonCommand(armJoy, 10, new TurnOnBeltMotorCommand());
-		setJoystickButtonCommand(armJoy, 11, new TurnOffBeltMotorCommand());
-		setJoystickButtonCommand(armJoy, 9, new TurnBeltMotorReverseCommand());
-		
+		setJoystickButtonCommand(armJoy, 3, new ResetArmEncoderCommand());
+		setJoystickButtonCommand(armJoy, 8, new TurnForwardBeltCommand());
+		setJoystickButtonCommand(armJoy, 9, new TurnReverseBeltCommand());
+		setJoystickButtonCommand(armJoy, 10, new TurnOffBeltCommand());
 	}
 	public double getLeftX() {
 		return deadZoneMod(leftDriveJoy.getX());
@@ -75,7 +72,7 @@ public class OI {
 	}
 	private double deadZoneMod(double joyVal){
 		if (Math.abs(joyVal) > RobotMap.JOYSTICK_DEADZONE) {
-			return joyVal;
+			return joyVal / 2.0;
 		} else {
 			return 0.0;
 		}

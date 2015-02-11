@@ -22,8 +22,8 @@ public class BinaryJoystickDriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftY = Robot.oi.getLeftY()/2.0;
-    	rightY = Robot.oi.getRightY()/2.0;
+    	leftY = Robot.oi.getLeftY();
+    	rightY = Robot.oi.getRightY();
     	Robot.driveTrain.binaryJoystickDrive(leftY, rightY);
     }
 

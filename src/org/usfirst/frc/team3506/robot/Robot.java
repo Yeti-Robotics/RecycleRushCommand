@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.commands.GetEncoderArmPositionCommand;
+import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.SaveArmEncoderPositionCommand;
 import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
 import org.usfirst.frc.team3506.robot.subsystems.Arm;
 import org.usfirst.frc.team3506.robot.subsystems.Claw;
@@ -35,7 +38,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		driveTrain = new DriveTrain(true);
+    	new ResetArmEncoderCommand().start();
+		new GetEncoderArmPositionCommand().start();
+    	driveTrain = new DriveTrain();
 		arm = new Arm();
 		claw = new Claw();
 		compressor = new RobotCompressor();
@@ -74,7 +79,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	new SaveArmEncoderPositionCommand().start();
     }
 
     /**

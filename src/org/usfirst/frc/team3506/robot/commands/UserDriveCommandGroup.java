@@ -5,11 +5,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class UserDriveCommandGroup extends CommandGroup {
-    
+public class UserDriveCommandGroup extends CommandGroup { 
     public  UserDriveCommandGroup() {
     	addParallel(new BinaryJoystickDriveCommand());
-    	//addParallel(new OperateArmCommand());
+    	addParallel(new OperateArmCommand());
     	addParallel(new TurnOnCompressorCommand());
     }
 }
