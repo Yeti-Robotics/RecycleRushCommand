@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.drive;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
@@ -7,22 +7,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TurnOffBeltCommand extends Command {
-
-    public TurnOffBeltCommand() {
+public class BinaryJoystickDriveCommand extends Command {
+	private double leftY;
+	private double rightY;
+    public BinaryJoystickDriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.claw);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.claw.setBeltMotorOff();
+    	leftY = Robot.oi.getLeftY();
+    	rightY = Robot.oi.getRightY();
+    	Robot.driveTrain.binaryJoystickDrive(leftY, rightY);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,5 +39,6 @@ public class TurnOffBeltCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

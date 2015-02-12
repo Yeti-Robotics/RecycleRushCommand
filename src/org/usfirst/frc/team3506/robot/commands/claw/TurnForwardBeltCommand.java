@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.claw;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ResetArmEncoderCommand extends Command {
+public class TurnForwardBeltCommand extends Command {
 
-    public ResetArmEncoderCommand() {
+    public TurnForwardBeltCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.arm);
+    	requires(Robot.claw);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,12 @@ public class ResetArmEncoderCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.resetArmEncoder();
+    	Robot.claw.setBeltMotorForward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -36,6 +36,5 @@ public class ResetArmEncoderCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

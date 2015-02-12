@@ -1,15 +1,15 @@
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.robot.commands.CloseClawCommand;
-import org.usfirst.frc.team3506.robot.commands.OpenClawCommand;
-import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
-import org.usfirst.frc.team3506.robot.commands.RestartSchedulerCommandGroup;
-import org.usfirst.frc.team3506.robot.commands.TurnForwardBeltCommand;
-import org.usfirst.frc.team3506.robot.commands.TurnOffBeltCommand;
-import org.usfirst.frc.team3506.robot.commands.TurnOnCompressorCommand;
-import org.usfirst.frc.team3506.robot.commands.TurnReverseBeltCommand;
-import org.usfirst.frc.team3506.robot.commands.UniversalDriveCommand;
-import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.OpenClawCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.TurnForwardBeltCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.TurnOffBeltCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.TurnReverseBeltCommand;
+import org.usfirst.frc.team3506.robot.commands.compressor.TurnOnCompressorCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.scheduler.RestartSchedulerCommandGroup;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;

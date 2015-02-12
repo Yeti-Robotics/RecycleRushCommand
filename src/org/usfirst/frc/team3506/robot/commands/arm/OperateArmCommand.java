@@ -1,31 +1,34 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.arm;
+
+import org.usfirst.frc.team3506.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  *
  */
-public class RebootSchedulerCommand extends Command {
-
-    public RebootSchedulerCommand() {
+public class OperateArmCommand extends Command {
+	double armEncoderChange;
+    public OperateArmCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.arm.resetArmEncoder();
+    	armEncoderChange = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Scheduler.getInstance().disable();
-    	Scheduler.getInstance().enable();
+    	Robot.arm.moveArm(Robot.oi.getArmY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -36,5 +39,7 @@ public class RebootSchedulerCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	end();
+    	Robot.arm.incrementArmPosition(Robot.arm.getArmEncoderDistance());
+    	System.out.println("OperateArmCommand interrupted: arm position successfully interrupted.");
     }
 }

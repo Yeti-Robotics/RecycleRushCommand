@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.claw;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LowerElevatorCommand extends Command {
+public class OpenClawCommand extends Command {
 
-    public LowerElevatorCommand() {
+    public OpenClawCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.elevator);
+    	requires(Robot.claw);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,12 @@ public class LowerElevatorCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.lowerElevator();
+    	Robot.claw.openClaw();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getLowerSwitch();
+        return true;
     }
 
     // Called once after isFinished returns true

@@ -1,10 +1,10 @@
 
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.robot.commands.GetEncoderArmPositionCommand;
-import org.usfirst.frc.team3506.robot.commands.ResetArmEncoderCommand;
-import org.usfirst.frc.team3506.robot.commands.SaveArmEncoderPositionCommand;
-import org.usfirst.frc.team3506.robot.commands.UserDriveCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.arm.GetEncoderArmPositionCommand;
+import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.arm.SaveArmEncoderPositionCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
 import org.usfirst.frc.team3506.robot.subsystems.Arm;
 import org.usfirst.frc.team3506.robot.subsystems.Claw;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrain;
@@ -71,6 +71,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        new GetEncoderArmPositionCommand().start();
         new UserDriveCommandGroup().start();
     }
 

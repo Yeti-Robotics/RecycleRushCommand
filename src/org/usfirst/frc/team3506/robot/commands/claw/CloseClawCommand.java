@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.claw;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
@@ -7,28 +7,26 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class OperateArmCommand extends Command {
-	double armEncoderChange;
-    public OperateArmCommand() {
+public class CloseClawCommand extends Command {
+
+    public CloseClawCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.arm);
+    	requires(Robot.claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arm.resetArmEncoder();
-    	armEncoderChange = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.moveArm(Robot.oi.getArmY());
+    	Robot.claw.closeClaw();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
@@ -38,8 +36,5 @@ public class OperateArmCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
-    	Robot.arm.incrementArmPosition(Robot.arm.getArmEncoderDistance());
-    	System.out.println("OperateArmCommand interrupted: arm position successfully interrupted.");
     }
 }

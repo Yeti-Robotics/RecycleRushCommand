@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.commands.arm;
 
 import java.io.File;
 import java.io.FileInputStream;

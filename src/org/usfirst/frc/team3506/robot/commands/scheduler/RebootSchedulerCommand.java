@@ -1,17 +1,16 @@
-package org.usfirst.frc.team3506.robot.commands;
-
-import org.usfirst.frc.team3506.robot.Robot;
+package org.usfirst.frc.team3506.robot.commands.scheduler;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  *
  */
-public class TurnOnCompressorCommand extends Command {
-    public TurnOnCompressorCommand() {
+public class RebootSchedulerCommand extends Command {
+
+    public RebootSchedulerCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.compressor);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +19,8 @@ public class TurnOnCompressorCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		Robot.compressor.turnOnCompressor();
+    	Scheduler.getInstance().disable();
+    	Scheduler.getInstance().enable();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,5 +35,6 @@ public class TurnOnCompressorCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
