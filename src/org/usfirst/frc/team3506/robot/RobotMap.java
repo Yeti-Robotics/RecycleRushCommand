@@ -50,10 +50,11 @@ public class RobotMap {
 	public static final double DEGREES_PER_PULSE = 4;
 	
 	// Distance sensor
-	public static final int DISTANCE_SENSOR_PORT = 0;
+	public static final int DISTANCE_SENSOR_PORT = 7;
 	
 	// Info for saving arm encoder position
 	public static double armEncoderPosition;
 	public static final String SAVE_FILE_NAME = "/home/lvuser/EncoderPosition.txt";
 	public static final String CAMERA_ID = "cam0";
+	public static final int GYRO_PORT = 6;
 }

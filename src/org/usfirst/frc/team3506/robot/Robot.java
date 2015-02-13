@@ -9,6 +9,7 @@ import org.usfirst.frc.team3506.robot.subsystems.Arm;
 import org.usfirst.frc.team3506.robot.subsystems.Claw;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3506.robot.subsystems.Elevator;
+import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.RobotCompressor;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -30,6 +31,7 @@ public class Robot extends IterativeRobot {
 	public static Claw claw;
 	public static RobotCompressor compressor;
 	public static Elevator elevator;
+	public static NavigationSensorSubsystem navSensor;
 
     Command autonomousCommand;
 
@@ -45,6 +47,7 @@ public class Robot extends IterativeRobot {
 		claw = new Claw();
 		compressor = new RobotCompressor();
 		elevator = new Elevator();
+		navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
     }

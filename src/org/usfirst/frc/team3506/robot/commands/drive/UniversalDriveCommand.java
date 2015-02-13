@@ -20,6 +20,7 @@ public class UniversalDriveCommand extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
+    	requires(Robot.navSensor);
     	this.turnAngle = turnAngle;
     	this.distance = distance;
     	this.speed = speed;
@@ -29,6 +30,7 @@ public class UniversalDriveCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrain.resetEncoders();
+    	Robot.navSensor.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
