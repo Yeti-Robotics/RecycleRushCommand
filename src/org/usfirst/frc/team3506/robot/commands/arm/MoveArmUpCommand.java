@@ -1,18 +1,19 @@
-package org.usfirst.frc.team3506.robot.commands.claw;
+package org.usfirst.frc.team3506.robot.commands.arm;
 
 import org.usfirst.frc.team3506.robot.Robot;
+import org.usfirst.frc.team3506.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class TurnForwardBeltCommand extends Command {
+public class MoveArmUpCommand extends Command {
 
-    public TurnForwardBeltCommand() {
+    public MoveArmUpCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.claw);
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,7 @@ public class TurnForwardBeltCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.claw.setBeltMotorForward();
+    	Robot.arm.moveArm(RobotMap.DEFAULT_ARM_SPEED);
     }
 
     // Make this return true when this Command no longer needs to run execute()

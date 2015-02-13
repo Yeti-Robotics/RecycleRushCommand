@@ -57,4 +57,5 @@ public class RobotMap {
 	public static final String SAVE_FILE_NAME = "/home/lvuser/EncoderPosition.txt";
 	public static final String CAMERA_ID = "cam0";
 	public static final int GYRO_PORT = 6;
+	public static final double DEFAULT_ARM_SPEED = 0.2;
 }

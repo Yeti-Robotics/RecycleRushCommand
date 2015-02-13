@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	new ResetArmEncoderCommand().start();
-		new GetEncoderArmPositionCommand().start();
+		/*new GetEncoderArmPositionCommand().start();*/
     	driveTrain = new DriveTrain();
 		arm = new Arm();
 		claw = new Claw();
@@ -74,7 +74,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        new GetEncoderArmPositionCommand().start();
+        /*new GetEncoderArmPositionCommand().start();*/
         new UserDriveCommandGroup().start();
     }
 
@@ -83,7 +83,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-    	new SaveArmEncoderPositionCommand().start();
+    	/*new SaveArmEncoderPositionCommand().start();*/
     }
 
     /**

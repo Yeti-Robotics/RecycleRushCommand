@@ -1,14 +1,19 @@
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
+import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.TurnForwardBeltCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.TurnOffBeltCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.TurnReverseBeltCommand;
+import org.usfirst.frc.team3506.robot.commands.compressor.TurnOffCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.compressor.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
+import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.scheduler.RestartSchedulerCommandGroup;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -33,21 +38,22 @@ public class OI {
 		// Commands and buttons
 		
 		// Left Drive Joystick
-		setJoystickButtonCommand(leftDriveJoy, 8, new RestartSchedulerCommandGroup());
+		setJoystickButtonCommand(leftDriveJoy, 1, new RestartSchedulerCommandGroup());
 		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
-		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOnCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOffCompressorCommand());
 
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 1, new UserDriveCommandGroup());
-		//setJoystickButtonCommand(rightDriveJoy, 2, new LiftElevatorCommand());
-		//setJoystickButtonCommand(rightDriveJoy, 3, new LowerElevatorCommand());
-		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.25));
+		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
+		setJoystickButtonCommand(rightDriveJoy, 2, new LowerElevatorCommand());
+		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
 		
 		// Arm Joystick
-		
 		setJoystickButtonCommand(armJoy, 1, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 2, new OpenClawCommand());
 		setJoystickButtonCommand(armJoy, 3, new ResetArmEncoderCommand());
+		setJoystickButtonCommand(armJoy, 6, new MoveArmUpCommand());
+		setJoystickButtonCommand(armJoy, 7, new MoveArmDownCommand());
 		setJoystickButtonCommand(armJoy, 8, new TurnForwardBeltCommand());
 		setJoystickButtonCommand(armJoy, 9, new TurnReverseBeltCommand());
 		setJoystickButtonCommand(armJoy, 10, new TurnOffBeltCommand());
