@@ -4,10 +4,9 @@ package org.usfirst.frc.team3506.robot;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
-import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
-import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static ClawSubsystem claw;
 	public static CompressorSubsystem compressor;
 	public static ElevatorSubsystem elevator;
-	public static NavigationSensorSubsystem navSensor;
+	//public static NavigationSensorSubsystem navSensor;
 
     Command autonomousCommand;
 

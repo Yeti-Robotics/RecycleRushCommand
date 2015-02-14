@@ -20,8 +20,8 @@ public class ElevatorSubsystem extends Subsystem {
     	lifter2 = new DoubleSolenoid(RobotMap.SOLENOID_LIFTER_PORT2[0], RobotMap.SOLENOID_LIFTER_PORT2[1]);
     }
     public void liftElevator(){
-    	lifter1.set(Value.kOff);
-    	lifter2.set(Value.kOff);
+    	lifter1.set(Value.kReverse);
+    	lifter2.set(Value.kReverse);
     }
     public void lowerElevator(){
     	lifter1.set(Value.kForward);

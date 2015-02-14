@@ -28,12 +28,12 @@ public class DriveTrainSubsystem extends Subsystem {
 		moveLeftTrain(leftY);
 	}
 	public void moveRightTrain(double speed){
-		motor4.set(speed);
-		motor3.set(speed);
+		motor4.set(-speed);
+		motor3.set(-speed);
 	}
 	public void moveLeftTrain(double speed){
-		motor2.set(-speed);
-		motor1.set(-speed);
+		motor2.set(speed);
+		motor1.set(speed);
 	}
 	public void resetEncoders(){
 		leftEncoder.reset();

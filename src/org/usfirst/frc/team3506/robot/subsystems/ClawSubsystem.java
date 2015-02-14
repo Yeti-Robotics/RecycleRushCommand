@@ -14,31 +14,31 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ClawSubsystem extends Subsystem {
     
 	private DigitalInput binInClawSwitch;
-    private DoubleSolenoid rightClaw, leftClaw;
+    private DoubleSolenoid claw2, claw1;
     private Relay beltMotor;
     
     public ClawSubsystem(){
     	binInClawSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH_BIN_IN_CLAW_PORT);
-    	rightClaw = new DoubleSolenoid(RobotMap.SOLENOID_RIGHT_CLAW_PORT[0], RobotMap.SOLENOID_RIGHT_CLAW_PORT[1]);
-    	leftClaw = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);
+    	claw2 = new DoubleSolenoid(RobotMap.SOLENOID_RIGHT_CLAW_PORT[0], RobotMap.SOLENOID_RIGHT_CLAW_PORT[1]);
+    	claw1 = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);
     	beltMotor = new Relay(RobotMap.SPIKE_CLAW_BELT_PORT);
     }
     public void closeClaw(){
-    	leftClaw.set(Value.kForward);
-    	rightClaw.set(Value.kForward);
+    	claw1.set(Value.kReverse);
+    	claw2.set(Value.kForward);
     }
     public void openClaw(){
-    	leftClaw.set(Value.kReverse);
-    	rightClaw.set(Value.kReverse);
+    	claw1.set(Value.kForward);
+    	claw2.set(Value.kReverse);
     }
     public boolean getBinInClawSwitchPos(){
     	return binInClawSwitch.get();
     }
     public void setBeltMotorForward(){
-    		beltMotor.set(Relay.Value.kForward);
+    		beltMotor.set(Relay.Value.kReverse);
     }
     public void setBeltMotorReverse(){
-    		beltMotor.set(Relay.Value.kReverse);
+    		beltMotor.set(Relay.Value.kForward);
     }
     public void setBeltMotorOff(){
     		beltMotor.set(Relay.Value.kOff);
