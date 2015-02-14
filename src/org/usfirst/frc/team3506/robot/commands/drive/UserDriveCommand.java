@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class BinaryJoystickDriveCommand extends Command {
+public class UserDriveCommand extends Command {
 	private double leftY;
 	private double rightY;
-    public BinaryJoystickDriveCommand() {
+    public UserDriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -24,7 +24,7 @@ public class BinaryJoystickDriveCommand extends Command {
     protected void execute() {
     	leftY = Robot.oi.getLeftY();
     	rightY = Robot.oi.getRightY();
-    	Robot.driveTrain.binaryJoystickDrive(leftY, rightY);
+    	Robot.driveTrain.joystickDrive(leftY, rightY);
     }
 
     // Make this return true when this Command no longer needs to run execute()

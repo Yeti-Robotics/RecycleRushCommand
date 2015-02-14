@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
@@ -11,6 +11,7 @@ import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -44,6 +45,7 @@ public class Robot extends IterativeRobot {
 		//navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
+    	SmartDashboard.putData(new ResetArmEncoderCommand());
     }
 	
 	public void disabledPeriodic() {
@@ -68,8 +70,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        /*new GetEncoderArmPositionCommand().start();*/
-        new UserDriveCommandGroup().start();
     }
 
     /**
@@ -86,6 +86,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         driveTrain.logEncoder();
+        arm.log();
     }
     
     /**

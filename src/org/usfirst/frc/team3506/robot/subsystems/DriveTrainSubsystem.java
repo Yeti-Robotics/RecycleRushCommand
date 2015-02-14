@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3506.robot.subsystems;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
+import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommand;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
@@ -23,7 +24,7 @@ public class DriveTrainSubsystem extends Subsystem {
 		leftEncoder.setDistancePerPulse(RobotMap.DISTANCE_PER_PULSE);
 		rightEncoder.setDistancePerPulse(RobotMap.DISTANCE_PER_PULSE);
 	}
-	public void binaryJoystickDrive(double leftY, double rightY){
+	public void joystickDrive(double leftY, double rightY){
 		moveRightTrain(rightY);
 		moveLeftTrain(leftY);
 	}
@@ -63,6 +64,7 @@ public class DriveTrainSubsystem extends Subsystem {
 		SmartDashboard.putData("Right Encoder", rightEncoder);
 	}
     public void initDefaultCommand() {
+    	setDefaultCommand(new UserDriveCommand());
     }
 }
 

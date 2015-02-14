@@ -2,7 +2,6 @@ package org.usfirst.frc.team3506.robot.subsystems;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Relay;
@@ -13,12 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ClawSubsystem extends Subsystem {
     
-	private DigitalInput binInClawSwitch;
     private DoubleSolenoid claw2, claw1;
     private Relay beltMotor;
     
     public ClawSubsystem(){
-    	binInClawSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH_BIN_IN_CLAW_PORT);
     	claw2 = new DoubleSolenoid(RobotMap.SOLENOID_RIGHT_CLAW_PORT[0], RobotMap.SOLENOID_RIGHT_CLAW_PORT[1]);
     	claw1 = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);
     	beltMotor = new Relay(RobotMap.SPIKE_CLAW_BELT_PORT);
@@ -30,9 +27,6 @@ public class ClawSubsystem extends Subsystem {
     public void openClaw(){
     	claw1.set(Value.kForward);
     	claw2.set(Value.kReverse);
-    }
-    public boolean getBinInClawSwitchPos(){
-    	return binInClawSwitch.get();
     }
     public void setBeltMotorForward(){
     		beltMotor.set(Relay.Value.kReverse);

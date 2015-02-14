@@ -17,7 +17,6 @@ public class OperateArmCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arm.resetArmEncoder();
     	armEncoderChange = 0;
     }
 
@@ -38,7 +37,6 @@ public class OperateArmCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     	Robot.arm.incrementArmPosition(Robot.arm.getArmEncoderDistance());
     	System.out.println("OperateArmCommand interrupted: arm position successfully interrupted.");
     }

@@ -11,10 +11,9 @@ import org.usfirst.frc.team3506.robot.commands.claw.TurnReverseBeltCommand;
 import org.usfirst.frc.team3506.robot.commands.compressor.TurnOffCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.compressor.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
-import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
-import org.usfirst.frc.team3506.robot.commands.scheduler.RestartSchedulerCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.scheduler.RebootSchedulerCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -38,12 +37,11 @@ public class OI {
 		// Commands and buttons
 		
 		// Left Drive Joystick
-		setJoystickButtonCommand(leftDriveJoy, 1, new RestartSchedulerCommandGroup());
+		setJoystickButtonCommand(leftDriveJoy, 1, new RebootSchedulerCommand());
 		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOffCompressorCommand());
 
 		// Right Drive Joystick
-		setJoystickButtonCommand(rightDriveJoy, 1, new UserDriveCommandGroup());
 		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 2, new LowerElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));

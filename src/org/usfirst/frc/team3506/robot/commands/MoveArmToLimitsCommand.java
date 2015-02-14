@@ -1,16 +1,15 @@
-package org.usfirst.frc.team3506.robot.commands.drive;
+package org.usfirst.frc.team3506.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveUntilCommand extends Command {
+public class MoveArmToLimitsCommand extends Command {
 
-    public DriveUntilCommand() {
+    public MoveArmToLimitsCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	
     }
 
     // Called just before this Command runs the first time

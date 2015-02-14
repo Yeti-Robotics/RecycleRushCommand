@@ -6,15 +6,12 @@ package org.usfirst.frc.team3506.robot;
  * floating around.
  */
 public class RobotMap {
-	// Limit switch ports (DIO)
-	public static final int LIMIT_SWITCH_LEFT_LIFTER_UP_PORT = 0;
-	public static final int LIMIT_SWITCH_LEFT_LIFTER_DOWN_PORT = 1;
-	public static final int LIMIT_SWITCH_BIN_IN_CLAW_PORT = 2;
 	
 	// Encoder ports ()
 	public static final int[] ENCODER_LEFT_DRIVE_TRAIN_PORT = {3,4};
 	public static final int[] ENCODER_RIGHT_DRIVE_TRAIN_PORT = {5,6};
-	public static final int[] ENCODER_ARM = {7,8};
+	public static final int[] ENCODER_ARM_LEFT = {7,8};
+	public static final int[] ENCODER_ARM_RIGHT = {0,1};
 	public static final double DISTANCE_PER_PULSE = 0.006;
 	// Distance per pulse = (Cicumference)/[(TICKS PER SECOND)*(TIME FOR 1 REVOLUTION)]
 	
@@ -53,8 +50,6 @@ public class RobotMap {
 	public static final int DISTANCE_SENSOR_PORT = 7;
 	
 	// Info for saving arm encoder position
-	public static double armEncoderPosition;
-	public static final String SAVE_FILE_NAME = "/home/lvuser/EncoderPosition.txt";
 	public static final String CAMERA_ID = "cam0";
 	public static final double DEFAULT_ARM_SPEED = 0.2;
 }
