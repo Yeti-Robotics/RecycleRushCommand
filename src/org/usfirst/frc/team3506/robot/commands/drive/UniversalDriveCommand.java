@@ -38,9 +38,9 @@ public class UniversalDriveCommand extends Command {
     		Robot.driveTrain.moveLeftTrain(speed);
     		if(Math.abs(Robot.driveTrain.getLeftEncoderRate()-Robot.driveTrain.getRightEncoderRate())>=0.1){
     			if(Math.abs(Robot.driveTrain.getLeftEncoderRate())>Math.abs(Robot.driveTrain.getRightEncoderRate())){
-    				speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
     			}else{
-    				speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
     			}	
     		}
     		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
@@ -54,9 +54,9 @@ public class UniversalDriveCommand extends Command {
     		Robot.driveTrain.moveLeftTrain(-speed);
     		if(Math.abs(Robot.driveTrain.getLeftEncoderRate()-Robot.driveTrain.getRightEncoderRate())>=0.1){
     			if(Math.abs(Robot.driveTrain.getLeftEncoderRate())>Math.abs(Robot.driveTrain.getRightEncoderRate())){
-    				speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
     			}else{
-    				speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
     			}	
     		}
     		if((Robot.driveTrain.getRightEncoderDistance()+Math.abs(Robot.driveTrain.getLeftEncoderDistance()))/2.0 < Robot.driveTrain.getTotalTurnDistance(turnAngle)){
@@ -69,9 +69,9 @@ public class UniversalDriveCommand extends Command {
     		Robot.driveTrain.moveRightTrain(-speed);
     		if(Math.abs(Robot.driveTrain.getLeftEncoderRate()-Robot.driveTrain.getRightEncoderRate())>=0.1){
     			if(Math.abs(Robot.driveTrain.getLeftEncoderRate())>Math.abs(Robot.driveTrain.getRightEncoderRate())){
-    				speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
     			}else{
-    				speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
+    				//speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
     			}
     		}
     		if((Math.abs(Robot.driveTrain.getRightEncoderDistance())+Robot.driveTrain.getLeftEncoderDistance())/2.0 < Robot.driveTrain.getTotalTurnDistance(turnAngle)){

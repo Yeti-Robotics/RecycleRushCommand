@@ -1,7 +1,11 @@
 
 package org.usfirst.frc.team3506.robot;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
@@ -29,6 +33,11 @@ public class Robot extends IterativeRobot {
 	public static CompressorSubsystem compressor;
 	public static ElevatorSubsystem elevator;
 	//public static NavigationSensorSubsystem navSensor;
+	public static boolean recording = false;
+	public static boolean playing = false;
+	public static RobotInput input;
+//	public static RobotInput previousInput = new RobotInput();
+	public static List<RobotInput> inputs = new ArrayList<RobotInput>();
 
     Command autonomousCommand;
 
@@ -87,6 +96,17 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         driveTrain.logEncoder();
         arm.log();
+        if (!playing) {
+			input = new RobotInput();
+			input.setButtonState(true, 10, oi.getLeftDriveJoy());
+			input.setButtonState(true, 4, oi.getLeftDriveJoy());
+			input.setLeftY(oi.getLeftY());
+			input.setRightY(oi.getRightY());
+		}
+		
+		if (recording) {
+			inputs.add(input);
+		}
     }
     
     /**

@@ -52,4 +52,6 @@ public class RobotMap {
 	// Info for saving arm encoder position
 	public static final String CAMERA_ID = "cam0";
 	public static final double DEFAULT_ARM_SPEED = 0.2;
+	
+	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 }

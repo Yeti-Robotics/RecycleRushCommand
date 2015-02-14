@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
+import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
@@ -14,6 +16,7 @@ import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.scheduler.RebootSchedulerCommand;
+import org.usfirst.frc.team3506.robot.domain.RobotInput;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -40,6 +43,8 @@ public class OI {
 		setJoystickButtonCommand(leftDriveJoy, 1, new RebootSchedulerCommand());
 		setJoystickButtonCommand(leftDriveJoy, 8, new TurnOnCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOffCompressorCommand());
+		setJoystickButtonCommand(leftDriveJoy, 2, new RecordCommand());
+		setJoystickButtonCommand(leftDriveJoy, 3, new LoadRecordingCommand());
 
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
@@ -90,6 +95,11 @@ public class OI {
 	}
 	private void setJoystickButtonCommand(Joystick joystick, int button, Command command) {
 		new JoystickButton(joystick, button).whenPressed(command);
+		if (leftDriveJoy == joystick) {
+			RobotInput.leftCommands[button - 1] = command;
+		} else if (rightDriveJoy == joystick) {
+			RobotInput.rightCommands[button - 1] = command;	
+		}
 	}
 }
 
