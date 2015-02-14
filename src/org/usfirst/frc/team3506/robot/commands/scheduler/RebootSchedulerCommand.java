@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3506.robot.commands.scheduler;
 
 import org.usfirst.frc.team3506.robot.Robot;
+import org.usfirst.frc.team3506.robot.commands.arm.OperateArmCommand;
+import org.usfirst.frc.team3506.robot.commands.compressor.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommand;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,7 +25,9 @@ public class RebootSchedulerCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Scheduler.getInstance().removeAll();
-    	//Scheduler.getInstance().add(new BinaryJoystickDriveCommand());
+    	Scheduler.getInstance().add(new UserDriveCommand());
+    	Scheduler.getInstance().add(new OperateArmCommand());
+    	Scheduler.getInstance().add(new TurnOnCompressorCommand());
     }
 
     // Make this return true when this Command no longer needs to run execute()

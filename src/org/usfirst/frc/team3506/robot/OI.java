@@ -45,6 +45,7 @@ public class OI {
 		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 2, new LowerElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
+		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
 		
 		// Arm Joystick
 		setJoystickButtonCommand(armJoy, 2, new CloseClawCommand());

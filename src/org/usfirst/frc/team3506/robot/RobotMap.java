@@ -44,7 +44,7 @@ public class RobotMap {
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
 	public static final double ROBOT_SPEED_MOD_INC = 0.01;
-	public static final double DEGREES_PER_PULSE = 4;
+	public static final double DEGREES_PER_PULSE = 0.25;
 	
 	// Distance sensor
 	public static final int DISTANCE_SENSOR_PORT = 7;
