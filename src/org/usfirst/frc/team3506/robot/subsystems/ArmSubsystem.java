@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Arm extends Subsystem {
+public class ArmSubsystem extends Subsystem {
     private Encoder armEncoder;
     private Talon leftArm, rightArm;
     private static double armPosition;
     
-    public Arm(){
+    public ArmSubsystem(){
     	armEncoder = new Encoder(RobotMap.ENCODER_ARM[0], RobotMap.ENCODER_ARM[1]);
     	armEncoder.setDistancePerPulse(RobotMap.DEGREES_PER_PULSE);
     	leftArm = new Talon(RobotMap.TALON_LEFT_ARM_PORT);
@@ -23,7 +23,7 @@ public class Arm extends Subsystem {
     }
     public void moveArm(double speed){
     	leftArm.set(speed);
-    	rightArm.set(speed);
+    	rightArm.set(-speed);
     }
     public double getArmEncoderDistance(){
     	return armEncoder.getDistance();

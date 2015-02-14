@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Elevator extends Subsystem {
+public class ElevatorSubsystem extends Subsystem {
     DigitalInput elevatorUpSwitch, elevatorDownSwitch;
     DoubleSolenoid lifter1, lifter2;
-    public Elevator(){
+    public ElevatorSubsystem(){
     	elevatorDownSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH_LEFT_LIFTER_DOWN_PORT);
     	elevatorUpSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH_LEFT_LIFTER_UP_PORT);
     	lifter1 = new DoubleSolenoid(RobotMap.SOLENOID_LIFTER_PORT1[0], RobotMap.SOLENOID_LIFTER_PORT1[1]);

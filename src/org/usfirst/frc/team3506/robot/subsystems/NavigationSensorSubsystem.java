@@ -14,7 +14,6 @@ public class NavigationSensorSubsystem extends Subsystem {
 	private AnalogInput distanceSensor;
 	
 	public NavigationSensorSubsystem(){
-		gyro = new Gyro(RobotMap.GYRO_PORT);
 		distanceSensor = new AnalogInput(RobotMap.DISTANCE_SENSOR_PORT);
 	}
 	public double getDistanceFromObstacle(){

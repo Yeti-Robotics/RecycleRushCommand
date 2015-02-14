@@ -3,7 +3,6 @@ package org.usfirst.frc.team3506.robot.subsystems;
 import org.usfirst.frc.team3506.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -11,10 +10,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class DriveTrain extends Subsystem {
+public class DriveTrainSubsystem extends Subsystem {
 	private Talon motor3, motor2, motor4, motor1;
 	private Encoder leftEncoder, rightEncoder;
-	public DriveTrain(){
+	public DriveTrainSubsystem(){
 		motor3 = new Talon(RobotMap.TALON_RIGHT_FRONT_WHEEL_PORT);
 		motor4 = new Talon(RobotMap.TALON_RIGHT_REAR_WHEEL_PORT);
 		motor2 = new Talon(RobotMap.TALON_LEFT_REAR_WHEEL_PORT);
@@ -33,8 +32,8 @@ public class DriveTrain extends Subsystem {
 		motor3.set(speed);
 	}
 	public void moveLeftTrain(double speed){
-		motor2.set(speed);
-		motor1.set(speed);
+		motor2.set(-speed);
+		motor1.set(-speed);
 	}
 	public void resetEncoders(){
 		leftEncoder.reset();

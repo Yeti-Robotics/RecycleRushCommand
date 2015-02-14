@@ -30,10 +30,10 @@ public class RobotMap {
 	// Talon ports (PWM)
 	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 0;
 	public static final int TALON_LEFT_REAR_WHEEL_PORT = 1;
-	public static final int TALON_RIGHT_FRONT_WHEEL_PORT = 2;
-	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 3;
-	public static final int TALON_RIGHT_ARM_PORT = 5;
-	public static final int TALON_LEFT_ARM_PORT = 4;
+	public static final int TALON_RIGHT_FRONT_WHEEL_PORT = 5;
+	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 4;
+	public static final int TALON_RIGHT_ARM_PORT = 2;
+	public static final int TALON_LEFT_ARM_PORT = 3;
 	
 	// Relays
 	public static final int SPIKE_CLAW_BELT_PORT = 0;
@@ -42,7 +42,7 @@ public class RobotMap {
 	public static final int JOYSTICK_LEFT_PORT = 1;
 	public static final int JOYSTICK_RIGHT_PORT = 2;
 	public static final int JOYSTICK_ARM_PORT = 0;
-	public static final double JOYSTICK_DEADZONE = 0.05;
+	public static final double JOYSTICK_DEADZONE = 0.1;
 	
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
@@ -56,6 +56,5 @@ public class RobotMap {
 	public static double armEncoderPosition;
 	public static final String SAVE_FILE_NAME = "/home/lvuser/EncoderPosition.txt";
 	public static final String CAMERA_ID = "cam0";
-	public static final int GYRO_PORT = 6;
 	public static final double DEFAULT_ARM_SPEED = 0.2;
 }

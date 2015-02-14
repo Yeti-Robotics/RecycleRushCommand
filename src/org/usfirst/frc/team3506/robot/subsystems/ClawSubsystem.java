@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Claw extends Subsystem {
+public class ClawSubsystem extends Subsystem {
     
 	private DigitalInput binInClawSwitch;
     private DoubleSolenoid rightClaw, leftClaw;
     private Relay beltMotor;
     
-    public Claw(){
+    public ClawSubsystem(){
     	binInClawSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH_BIN_IN_CLAW_PORT);
     	rightClaw = new DoubleSolenoid(RobotMap.SOLENOID_RIGHT_CLAW_PORT[0], RobotMap.SOLENOID_RIGHT_CLAW_PORT[1]);
     	leftClaw = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);

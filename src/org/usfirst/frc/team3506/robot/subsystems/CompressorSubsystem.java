@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class RobotCompressor extends Subsystem {
+public class CompressorSubsystem extends Subsystem {
 	private Compressor compressor;
 
-	public RobotCompressor() {
+	public CompressorSubsystem() {
 		compressor = new Compressor(RobotMap.PCM_ID);
 	}
 

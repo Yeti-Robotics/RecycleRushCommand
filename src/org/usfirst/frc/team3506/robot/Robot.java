@@ -1,16 +1,13 @@
 
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.robot.commands.arm.GetEncoderArmPositionCommand;
-import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
-import org.usfirst.frc.team3506.robot.commands.arm.SaveArmEncoderPositionCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommandGroup;
-import org.usfirst.frc.team3506.robot.subsystems.Arm;
-import org.usfirst.frc.team3506.robot.subsystems.Claw;
-import org.usfirst.frc.team3506.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team3506.robot.subsystems.Elevator;
+import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
-import org.usfirst.frc.team3506.robot.subsystems.RobotCompressor;
+import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,11 +23,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public static DriveTrain driveTrain;
-	public static Arm arm;
-	public static Claw claw;
-	public static RobotCompressor compressor;
-	public static Elevator elevator;
+	public static DriveTrainSubsystem driveTrain;
+	public static ArmSubsystem arm;
+	public static ClawSubsystem claw;
+	public static CompressorSubsystem compressor;
+	public static ElevatorSubsystem elevator;
 	public static NavigationSensorSubsystem navSensor;
 
     Command autonomousCommand;
@@ -40,14 +37,12 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	new ResetArmEncoderCommand().start();
-		/*new GetEncoderArmPositionCommand().start();*/
-    	driveTrain = new DriveTrain();
-		arm = new Arm();
-		claw = new Claw();
-		compressor = new RobotCompressor();
-		elevator = new Elevator();
-		navSensor = new NavigationSensorSubsystem();
+    	driveTrain = new DriveTrainSubsystem();
+		arm = new ArmSubsystem();
+		claw = new ClawSubsystem();
+		compressor = new CompressorSubsystem();
+		elevator = new ElevatorSubsystem();
+		//navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
     }
