@@ -82,7 +82,7 @@ public class OI {
 	}
 	private double deadZoneMod(double joyVal){
 		if (Math.abs(joyVal) > RobotMap.JOYSTICK_DEADZONE) {
-			return joyVal / 2.0;
+			return joyVal * RobotMap.JOYSTICK_MODIFIER;
 		} else {
 			return 0.0;
 		}

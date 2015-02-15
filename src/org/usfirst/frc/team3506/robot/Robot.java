@@ -4,6 +4,8 @@ package org.usfirst.frc.team3506.robot;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
+import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
@@ -11,8 +13,14 @@ import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
+//import org.yetirobotics.frc.team3506.robot.RobotMap;
 
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
+
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -25,7 +33,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
+	int session;
+    Image frame;
 	public static OI oi;
 	public static DriveTrainSubsystem driveTrain;
 	public static ArmSubsystem arm;
@@ -36,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public static boolean recording = false;
 	public static boolean playing = false;
 	public static RobotInput input;
+	public static CameraServer camera;
 //	public static RobotInput previousInput = new RobotInput();
 	public static List<RobotInput> inputs = new ArrayList<RobotInput>();
 
@@ -51,6 +61,9 @@ public class Robot extends IterativeRobot {
 		claw = new ClawSubsystem();
 		compressor = new CompressorSubsystem();
 		elevator = new ElevatorSubsystem();
+		camera = CameraServer.getInstance();
+		camera.setQuality(50);
+		camera.startAutomaticCapture("cam0");
 		//navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
@@ -79,6 +92,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        SmartDashboard.putData(new RecordCommand());
+        SmartDashboard.putData("Load recording", new LoadRecordingCommand());
+        SmartDashboard.putBoolean("Is Recording", recording);
     }
 
     /**
@@ -107,7 +123,13 @@ public class Robot extends IterativeRobot {
 		if (recording) {
 			inputs.add(input);
 		}
-    }
+		/*if (!camera.isAutoCaptureStarted()) {
+			camera.startAutomaticCapture("cam0");
+		}*/
+     }
+     
+ 
+ 
     
     /**
      * This function is called periodically during test mode
