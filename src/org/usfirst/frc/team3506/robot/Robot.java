@@ -15,6 +15,8 @@ import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
 //import org.yetirobotics.frc.team3506.robot.RobotMap;
 
+import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
+
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 
@@ -41,7 +43,7 @@ public class Robot extends IterativeRobot {
 	public static ClawSubsystem claw;
 	public static CompressorSubsystem compressor;
 	public static ElevatorSubsystem elevator;
-	//public static NavigationSensorSubsystem navSensor;
+	public static NavigationSensorSubsystem navSensor;
 	public static boolean recording = false;
 	public static boolean playing = false;
 	public static RobotInput input;
@@ -64,7 +66,7 @@ public class Robot extends IterativeRobot {
 		camera = CameraServer.getInstance();
 		camera.setQuality(50);
 		camera.startAutomaticCapture("cam0");
-		//navSensor = new NavigationSensorSubsystem();
+		navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
     	SmartDashboard.putData(new ResetArmEncoderCommand());

@@ -47,8 +47,10 @@ public class RobotMap {
 	public static final double ROBOT_SPEED_MOD_INC = 0.01;
 	public static final double DEGREES_PER_PULSE = 0.25;
 	
-	// Distance sensor
-	public static final int DISTANCE_SENSOR_PORT = 7;
+	// Navigation sensors
+	public static final int SONAR_SENSOR_PORT = 8;
+	public static final int GYRO_PORT = 1;
+	public static final double TOTE_PICKUP_DISTANCE = 0.1;
 	
 	// Info for saving arm encoder position
 	public static final String CAMERA_ID = "cam0";
