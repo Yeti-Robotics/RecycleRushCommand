@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3506.robot.subsystems;
 
+import org.usfirst.frc.team3506.robot.Robot;
 import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommand;
 
@@ -26,8 +27,8 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 	
 	public void joystickDrive(double leftY, double rightY){
-		moveRightTrain(rightY);
-		moveLeftTrain(leftY);
+		moveRightTrain(rightY * Robot.oi.getLeftZ());
+		moveLeftTrain(leftY * Robot.oi.getLeftZ());
 	}
 	
 	public void driveStraight(double speed) {

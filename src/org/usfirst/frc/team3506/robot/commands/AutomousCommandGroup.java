@@ -1,7 +1,12 @@
 package org.usfirst.frc.team3506.robot.commands;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
+import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
+import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
+import org.usfirst.frc.team3506.robot.commands.claw.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilDistanceAwayCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
 
@@ -37,19 +42,24 @@ public class AutomousCommandGroup extends CommandGroup {
     	 * Repeat
     	 */
     	
-    	
-    	/*INSERT PICK UP CAN CODE HERE*/
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_DISTANCE, 0.3));
-    	addSequential(new LiftElevatorCommand());
-    	/*INSERT LOWER ARM CODE HERE*/
-    	/*INSERT DRIVE TO NEXT TOTE SET CODE HERE*/
-    	
-    	/*INSERT PICK UP CAN CODE HERE*/
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_DISTANCE, 0.3));
-    	addSequential(new LowerElevatorCommand());
-    	addSequential(new LiftElevatorCommand());
-    	/*INSERT LOWER ARM CODE HERE*/
-    	/*INSERT DRIVE TO NEXT TOTE SET CODE HERE*/
-    	
+    	int numTargets = 3;
+    	for (int i = 1; i <= numTargets; i++) {
+        	addSequential(new CloseClawCommand());
+        	addSequential(new MoveArmUpCommand());
+        	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_DISTANCE, 0.3));
+        	addSequential(new LowerElevatorCommand());
+        	if (i < numTargets) {
+            	addParallel(new OpenClawCommand());
+        		addSequential(new MoveArmDownCommand());
+            	addSequential(new LiftElevatorCommand());
+            	addSequential(new UniversalDriveCommand(0, /*placeholder*/0.5, 0.1));
+        		addSequential(new DriveUntilDistanceAwayCommand(/*placeholder*/1, 0.3));
+        	} else {
+        		addSequential(new UniversalDriveCommand(90, 0, 0.3));
+        	}
+    	}
+    	addParallel(new LowerElevatorCommand());
+    	addSequential(new UniversalDriveCommand(0, /*placeholder*/3, 0.3));
+    	addSequential(new UniversalDriveCommand(0, /*placeholder*/-2, -0.3));
     }
 }

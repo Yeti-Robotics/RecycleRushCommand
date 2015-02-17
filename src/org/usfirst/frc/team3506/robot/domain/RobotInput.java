@@ -24,8 +24,8 @@ public class RobotInput implements Serializable {
 	
 	/**
 	 * @param booleanArray
-	 *            Must be OldRobotInput.leftButtons[] or
-	 *            OldRobotInput.rightButtons[]
+	 *            Must be RobotInput.leftButtons[] or
+	 *            RobotInput.rightButtons[]
 	 * 
 	 * @param buttonNumber
 	 *            The value of the button on the joystick

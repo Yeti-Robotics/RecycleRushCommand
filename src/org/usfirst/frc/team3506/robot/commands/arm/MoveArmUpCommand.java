@@ -27,7 +27,7 @@ public class MoveArmUpCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.getArmEncoderDistance() < -390;
+        return Robot.arm.getArmEncoderDistance() < RobotMap.MIN_ARM_DISTANCE;
     }
 
     // Called once after isFinished returns true

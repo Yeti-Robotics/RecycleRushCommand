@@ -45,6 +45,8 @@ public class OI {
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOffCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 2, new RecordCommand());
 		setJoystickButtonCommand(leftDriveJoy, 3, new LoadRecordingCommand());
+									 // Button 4 raises the arm
+									 // Button 5 lowers the arm
 
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
@@ -68,6 +70,9 @@ public class OI {
 	public double getLeftY(){
 		return deadZoneMod(leftDriveJoy.getY());
 	}
+	public double getLeftZ() {
+		return throttleMod(leftDriveJoy.getZ());
+	}
 	public double getRightX(){
 		return deadZoneMod(rightDriveJoy.getX());
 	}
@@ -86,6 +91,9 @@ public class OI {
 		} else {
 			return 0.0;
 		}
+	}
+	private double throttleMod(double joyVal) {
+		return (joyVal + 1.0) / 2.0;
 	}
 	public Joystick getLeftDriveJoy(){
 		return leftDriveJoy;

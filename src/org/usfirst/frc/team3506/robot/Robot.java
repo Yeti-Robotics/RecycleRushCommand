@@ -17,9 +17,6 @@ import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
 
 import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
 
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.Image;
-
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -36,7 +33,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	int session;
-    Image frame;
 	public static OI oi;
 	public static DriveTrainSubsystem driveTrain;
 	public static ArmSubsystem arm;

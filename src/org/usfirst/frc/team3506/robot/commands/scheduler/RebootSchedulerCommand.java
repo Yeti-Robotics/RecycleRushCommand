@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3506.robot.commands.scheduler;
 
-import org.usfirst.frc.team3506.robot.Robot;
 import org.usfirst.frc.team3506.robot.commands.arm.OperateArmCommand;
 import org.usfirst.frc.team3506.robot.commands.compressor.TurnOnCompressorCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UserDriveCommand;
