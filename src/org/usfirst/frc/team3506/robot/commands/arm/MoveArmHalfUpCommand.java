@@ -27,8 +27,7 @@ public class MoveArmHalfUpCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.getArmEncoderDistance() <
-        		(RobotMap.MIN_ARM_DISTANCE + RobotMap.MAX_ARM_DISTANCE) / 2;
+        return Robot.arm.getArmEncoderDistance() < RobotMap.MIN_ARM_DISTANCE * 0.9;
     }
 
     // Called once after isFinished returns true

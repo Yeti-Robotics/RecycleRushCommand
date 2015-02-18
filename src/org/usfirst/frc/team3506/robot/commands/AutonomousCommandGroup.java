@@ -2,6 +2,7 @@ package org.usfirst.frc.team3506.robot.commands;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
+import org.usfirst.frc.team3506.robot.commands.arm.MoveArmHalfUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
@@ -43,33 +44,35 @@ public class AutonomousCommandGroup extends CommandGroup {
     	 * Repeat
     	 */
     	
-    	int numTargets = 1;
     	addSequential(new ResetArmEncoderCommand());
     	addSequential(new LowerElevatorCommand());
-    	for (int i = 1; i <= numTargets; i++) {
-        	addSequential(new CloseClawCommand());
-        	addParallel(new MoveArmUpCommand());
-        	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        	if (i > 1) {
-        		addSequential(new LowerElevatorCommand());
-        	} else {
-        		addSequential(new LiftElevatorCommand());
-        	}
-        	if (i < numTargets || numTargets == 1) {
-            	addSequential(new MoveArmUpCommand());
-            	addSequential(new OpenClawCommand());
-        		addParallel(new MoveArmDownCommand());
-        		
-            	addSequential(new LiftElevatorCommand());
-        		addParallel(new MoveArmDownCommand());
-            	addSequential(new UniversalDriveCommand(0, /*placeholder*/0.5, 0.1));
-        		addParallel(new MoveArmDownCommand());
-        		addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
-        		addSequential(new MoveArmDownCommand());
-        	}
-    	}
+
+        addSequential(new CloseClawCommand());
+        addParallel(new MoveArmUpCommand());
+        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
+        addSequential(new LiftElevatorCommand());
+        addSequential(new MoveArmUpCommand());
+        addSequential(new OpenClawCommand());
+        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
+    	addParallel(new MoveArmDownCommand());
+    	
+    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
+    	addSequential(new MoveArmDownCommand());
+
+        addSequential(new CloseClawCommand());
+        addParallel(new MoveArmHalfUpCommand());
+        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
+        addSequential(new LowerElevatorCommand());
+        addSequential(new MoveArmHalfUpCommand());
+        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
+        addSequential(new LiftElevatorCommand());
+
+    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
+    	
+//    	addSequential(new LowerElevatorCommand());
+//    	addParallel(new MoveArmUpCommand());
 //      addSequential(new UniversalDriveCommand(90, 0, 0.3));
-//    	addParallel(new LowerElevatorCommand());
+//    	addSequential(new MoveArmUpCommand());
 //    	addSequential(new UniversalDriveCommand(0, /*placeholder*/3, 0.3));
 //    	addSequential(new UniversalDriveCommand(0, /*placeholder*/-2, -0.3));
     }
