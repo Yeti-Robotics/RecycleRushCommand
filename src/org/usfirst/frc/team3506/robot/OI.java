@@ -1,7 +1,10 @@
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.commands.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
+import org.usfirst.frc.team3506.robot.commands.SaveRecordingCommand;
+import org.usfirst.frc.team3506.robot.commands.ToggleDriveModeCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
@@ -32,11 +35,13 @@ public class OI {
 	private static Joystick leftDriveJoy;
 	private static Joystick rightDriveJoy;
 	private static Joystick armJoy;
+	private static boolean arcadeMode;
 
 	public OI(){
 		leftDriveJoy = new Joystick(RobotMap.JOYSTICK_LEFT_PORT);
 		rightDriveJoy = new Joystick(RobotMap.JOYSTICK_RIGHT_PORT);
 		armJoy = new Joystick(RobotMap.JOYSTICK_ARM_PORT);
+		arcadeMode = true;
 		// Commands and buttons
 		
 		// Left Drive Joystick
@@ -45,14 +50,15 @@ public class OI {
 		setJoystickButtonCommand(leftDriveJoy, 9, new TurnOffCompressorCommand());
 		setJoystickButtonCommand(leftDriveJoy, 2, new RecordCommand());
 		setJoystickButtonCommand(leftDriveJoy, 3, new LoadRecordingCommand());
-									 // Button 4 raises the arm
-									 // Button 5 lowers the arm
+		setJoystickButtonCommand(leftDriveJoy, 11, new SaveRecordingCommand());
+		setJoystickButtonCommand(leftDriveJoy, 10, new AutonomousCommandGroup());
 
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 2, new LowerElevatorCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
 		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
+		setJoystickButtonCommand(rightDriveJoy, 1, new ToggleDriveModeCommand());
 		
 		// Arm Joystick
 		setJoystickButtonCommand(armJoy, 2, new CloseClawCommand());
@@ -100,6 +106,12 @@ public class OI {
 	}
 	public Joystick getRightDriveJoy(){
 		return rightDriveJoy;
+	}
+	public void toggleDriveMode() {
+		arcadeMode = !arcadeMode;
+	}
+	public boolean isArcadeMode() {
+		return arcadeMode;
 	}
 	private void setJoystickButtonCommand(Joystick joystick, int button, Command command) {
 		new JoystickButton(joystick, button).whenPressed(command);

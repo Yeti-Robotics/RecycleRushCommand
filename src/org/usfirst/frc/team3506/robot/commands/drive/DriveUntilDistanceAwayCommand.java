@@ -14,7 +14,7 @@ public class DriveUntilDistanceAwayCommand extends Command {
     	requires(Robot.navSensor);
     	requires(Robot.driveTrain);
     	this.distanceAway = distanceAway;
-    	this.speed = speed;
+    	this.speed = -speed;
     }
 
     // Called just before this Command runs the first time
@@ -23,14 +23,14 @@ public class DriveUntilDistanceAwayCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.navSensor.getDistanceFromObstacle() >= distanceAway) {
+    	if (Robot.navSensor.getSonarVoltage() >= distanceAway) {
 			Robot.driveTrain.driveStraight(speed);
 		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.navSensor.getDistanceFromObstacle() <= distanceAway;
+        return Robot.navSensor.getSonarVoltage() <= distanceAway;
     }
 
     // Called once after isFinished returns true

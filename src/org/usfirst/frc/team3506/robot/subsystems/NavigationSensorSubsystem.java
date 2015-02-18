@@ -18,10 +18,16 @@ public class NavigationSensorSubsystem extends Subsystem {
 		distanceSensor = new AnalogInput(RobotMap.SONAR_SENSOR_PORT);
 	}
 	public double getDistanceFromObstacle(){
-		return convertVoltageToFeet(distanceSensor.getVoltage());
+		return convertVoltageToInches(distanceSensor.getVoltage());
 	}
-	private double convertVoltageToFeet(double voltage){
-		return (100.0/12.0)*voltage + (7.0/60.0);
+	private double convertVoltageToInches(double voltage){
+		return 124.982*voltage - 3.33109;
+	}
+	public double getSonarVoltage() {
+		return distanceSensor.getVoltage();
+	}
+	public Gyro getGyro() {
+		return gyro;
 	}
 	public double getGyroAngle(){
 		return gyro.getAngle();

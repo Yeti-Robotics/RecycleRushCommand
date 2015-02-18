@@ -2,7 +2,13 @@ package org.usfirst.frc.team3506.robot.commands;
 
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.List;
+
 import org.usfirst.frc.team3506.robot.Robot;
+import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -14,6 +20,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class LoadRecordingCommand extends Command {
 	int count = 0;
 	RobotInput previousInput = new RobotInput();
+	List<RobotInput> localInputs;
 
 	public LoadRecordingCommand() {
 		// Use requires() here to declare subsystem dependencies
@@ -22,9 +29,19 @@ public class LoadRecordingCommand extends Command {
 	}
 
 	// Called just before this Command runs the first time
+	@SuppressWarnings("unchecked")
 	protected void initialize() {
 		count = 0;
 		Robot.playing = true;
+		try {
+			File file = new File(RobotMap.COMMANDS_FILE);
+			FileInputStream fs = new FileInputStream(file);
+			ObjectInputStream os = new ObjectInputStream(fs);
+			localInputs = (List<RobotInput>) os.readObject();
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Called repeatedly when this Command is scheduled to run

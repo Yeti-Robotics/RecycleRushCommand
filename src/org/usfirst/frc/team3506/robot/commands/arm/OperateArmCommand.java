@@ -23,25 +23,7 @@ public class OperateArmCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = 0.0;
-    	double encoderDistance = Robot.arm.getArmEncoderDistance();
-    	if (Robot.oi.getRightDriveJoy().getRawButton(4)) {
-    		double upSpeed = RobotMap.DEFAULT_ARM_SPEED;
-    		double distToStop = encoderDistance - RobotMap.MIN_ARM_DISTANCE;
-    		if (distToStop < 50) {
-    			upSpeed *= distToStop / 50;
-    		}
-    		speed += upSpeed;
-    	}
-    	if (Robot.oi.getRightDriveJoy().getRawButton(5)) {
-    		double downSpeed = -RobotMap.DEFAULT_ARM_SPEED;
-    		double distToStop = RobotMap.MAX_ARM_DISTANCE - encoderDistance;
-    		if (distToStop < 50) {
-    			downSpeed *= distToStop / 50;
-    		}
-    		speed += downSpeed;
-    	}
-    	Robot.arm.moveArm(speed);
+    	Robot.arm.moveArm(Robot.oi.getArmY());
     }
 
     // Make this return true when this Command no longer needs to run execute()

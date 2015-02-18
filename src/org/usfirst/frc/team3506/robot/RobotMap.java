@@ -25,10 +25,10 @@ public class RobotMap {
 	public static final int[] SOLENOID_LIFTER_PORT2 = {6,7};
 	
 	// Talon ports (PWM)
-	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 0;
-	public static final int TALON_LEFT_REAR_WHEEL_PORT = 1;
-	public static final int TALON_RIGHT_FRONT_WHEEL_PORT = 5;
-	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 4;
+	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 5;
+	public static final int TALON_LEFT_REAR_WHEEL_PORT = 4;
+	public static final int TALON_RIGHT_FRONT_WHEEL_PORT = 0;
+	public static final int TALON_RIGHT_REAR_WHEEL_PORT = 1;
 	public static final int TALON_RIGHT_ARM_PORT = 2;
 	public static final int TALON_LEFT_ARM_PORT = 3;
 	
@@ -48,14 +48,16 @@ public class RobotMap {
 	public static final double DEGREES_PER_PULSE = 0.25;
 	
 	// Navigation sensors
-	public static final int SONAR_SENSOR_PORT = 8;
+	public static final int SONAR_SENSOR_PORT = 2;
 	public static final int GYRO_PORT = 1;
-	public static final double TOTE_PICKUP_DISTANCE = 0.1;
+	public static final double TOTE_PICKUP_VOLTAGE = 0.09;
+	public static final double CAN_PICKUP_VOLTAGE = 0.18;
 	
 	// Info for saving arm encoder position
-	public static final double MIN_ARM_DISTANCE = -390.0;
-	public static final double MAX_ARM_DISTANCE = 0.0;
-	public static final double DEFAULT_ARM_SPEED = 0.2;
+	public static final double MIN_ARM_DISTANCE = -380.0;
+	public static final double MAX_ARM_DISTANCE = -10.0;
+	public static final double DEFAULT_ARM_SPEED = 0.4;
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
+	public static final String COMMANDS_FILE = "/3506/recording.txt";
 }

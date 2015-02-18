@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MoveArmUpCommand extends Command {
+public class MoveArmHalfUpCommand extends Command {
 
-    public MoveArmUpCommand() {
+    public MoveArmHalfUpCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.arm);
@@ -27,7 +27,8 @@ public class MoveArmUpCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.getArmEncoderDistance() <= RobotMap.MIN_ARM_DISTANCE;
+        return Robot.arm.getArmEncoderDistance() <
+        		(RobotMap.MIN_ARM_DISTANCE + RobotMap.MAX_ARM_DISTANCE) / 2;
     }
 
     // Called once after isFinished returns true

@@ -4,6 +4,7 @@ package org.usfirst.frc.team3506.robot;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.usfirst.frc.team3506.robot.commands.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
@@ -63,6 +64,7 @@ public class Robot extends IterativeRobot {
 		camera.setQuality(50);
 		camera.startAutomaticCapture("cam0");
 		navSensor = new NavigationSensorSubsystem();
+		autonomousCommand = new AutonomousCommandGroup();
     	// OI always constructed last
     	oi = new OI();
     	SmartDashboard.putData(new ResetArmEncoderCommand());
@@ -70,6 +72,9 @@ public class Robot extends IterativeRobot {
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putData("Gyro", navSensor.getGyro());
+		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
+		SmartDashboard.putNumber("Arm Encoder", arm.getArmEncoderDistance());
 	}
 
     public void autonomousInit() {
@@ -93,6 +98,15 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(new RecordCommand());
         SmartDashboard.putData("Load recording", new LoadRecordingCommand());
         SmartDashboard.putBoolean("Is Recording", recording);
+		SmartDashboard.putData("Gyro", navSensor.getGyro());
+		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
+		SmartDashboard.putNumber("Left Drive Encoder", driveTrain.getLeftEncoderDistance());
+		SmartDashboard.putNumber("Right Drive Encoder", driveTrain.getRightEncoderDistance());
+		SmartDashboard.putBoolean("Recording", recording);
+		SmartDashboard.putNumber("Inputs", inputs.size());
+		SmartDashboard.putData("Gyro", navSensor.getGyro());
+		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
+		SmartDashboard.putNumber("Arm Encoder", arm.getArmEncoderDistance());
     }
 
     /**

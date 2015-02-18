@@ -21,8 +21,9 @@ public class UniversalDriveCommand extends Command {
     	requires(Robot.driveTrain);
     	this.turnAngle = turnAngle;
     	this.distance = distance;
-    	this.speed = speed;
+    	this.speed = -speed;
     	this.speedModifier = 0;
+    	forwardDistance = 0;
     }
 
     // Called just before this Command runs the first time
@@ -35,13 +36,13 @@ public class UniversalDriveCommand extends Command {
     	if(turnAngle==0){
     		Robot.driveTrain.moveRightTrain(speed+speedModifier);
     		Robot.driveTrain.moveLeftTrain(speed);
-    		if(Math.abs(Robot.driveTrain.getLeftEncoderRate()-Robot.driveTrain.getRightEncoderRate())>=0.1){
-    			if(Math.abs(Robot.driveTrain.getLeftEncoderRate())>Math.abs(Robot.driveTrain.getRightEncoderRate())){
-    				//speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
-    			}else{
-    				//speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
-    			}	
-    		}
+//    		if(Math.abs(Robot.driveTrain.getLeftEncoderRate()-Robot.driveTrain.getRightEncoderRate())>=0.1){
+//    			if(Math.abs(Robot.driveTrain.getLeftEncoderRate())>Math.abs(Robot.driveTrain.getRightEncoderRate())){
+//    				//speedModifier += RobotMap.ROBOT_SPEED_MOD_INC;
+//    			}else{
+//    				//speedModifier -= RobotMap.ROBOT_SPEED_MOD_INC;
+//    			}	
+//    		}
     		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
     		if(forwardDistance<distance){
     			isDone = false;
