@@ -67,13 +67,13 @@ public class AutonomousCommandGroup extends CommandGroup {
         addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
         addSequential(new LiftElevatorCommand());
 
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
+    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
+        addSequential(new LowerElevatorCommand());
+    	addParallel(new MoveArmUpCommand());
     	
-//    	addSequential(new LowerElevatorCommand());
-//    	addParallel(new MoveArmUpCommand());
-//      addSequential(new UniversalDriveCommand(90, 0, 0.3));
-//    	addSequential(new MoveArmUpCommand());
-//    	addSequential(new UniversalDriveCommand(0, /*placeholder*/3, 0.3));
-//    	addSequential(new UniversalDriveCommand(0, /*placeholder*/-2, -0.3));
+    	addSequential(new UniversalDriveCommand(90, 0, 0.3));
+    	addSequential(new MoveArmUpCommand());
+    	addSequential(new UniversalDriveCommand(0, 3, 0.3));
+    	addSequential(new UniversalDriveCommand(0, -2, -0.3));
     }
 }
