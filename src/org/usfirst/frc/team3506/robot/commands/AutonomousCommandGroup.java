@@ -73,7 +73,7 @@ public class AutonomousCommandGroup extends CommandGroup {
     	
     	addSequential(new UniversalDriveCommand(90, 0, 0.3));
     	addSequential(new MoveArmUpCommand());
-    	addSequential(new UniversalDriveCommand(0, 3, 0.3));
-    	addSequential(new UniversalDriveCommand(0, -2, -0.3));
+    	addSequential(new UniversalDriveCommand(0, 6, 0.3));
+    	addSequential(new UniversalDriveCommand(0, -3, -0.3));
     }
 }
