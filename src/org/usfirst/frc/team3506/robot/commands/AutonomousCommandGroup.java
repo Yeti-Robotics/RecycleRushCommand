@@ -66,6 +66,7 @@ public class AutonomousCommandGroup extends CommandGroup {
         addSequential(new MoveArmHalfUpCommand());
         addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
         addSequential(new LiftElevatorCommand());
+        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
 
     	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
         addSequential(new LowerElevatorCommand());
@@ -73,7 +74,7 @@ public class AutonomousCommandGroup extends CommandGroup {
     	
     	addSequential(new UniversalDriveCommand(90, 0, 0.3));
     	addSequential(new MoveArmUpCommand());
-    	addSequential(new UniversalDriveCommand(0, 6, 0.3));
+    	addSequential(new UniversalDriveCommand(0, 7, 0.3));
     	addSequential(new UniversalDriveCommand(0, -3, -0.3));
     }
 }
