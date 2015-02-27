@@ -17,7 +17,7 @@ public class DriveTrainSubsystem extends Subsystem {
 	private Talon motor3, motor2, motor4, motor1;
 	private Encoder leftEncoder, rightEncoder;
 	private RobotDrive drive;
-	public DriveTrainSubsystem(){
+	public DriveTrainSubsystem() {
 		motor3 = new Talon(RobotMap.TALON_RIGHT_FRONT_WHEEL_PORT);
 		motor4 = new Talon(RobotMap.TALON_RIGHT_REAR_WHEEL_PORT);
 		motor2 = new Talon(RobotMap.TALON_LEFT_REAR_WHEEL_PORT);
@@ -30,12 +30,7 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 	
 	public void joystickDrive(double left, double right){
-		if (Robot.oi.isArcadeMode()){
-			drive.arcadeDrive(-left, -right, true);
-		} else {
-			moveRightTrain(right);
-			moveLeftTrain(left);
-		}
+		drive.arcadeDrive(-left, -right, false);
 	}
 	
 	public void driveStraight(double speed) {

@@ -13,6 +13,7 @@ import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
@@ -48,27 +49,31 @@ public class AutonomousCommandGroup extends CommandGroup {
     	addSequential(new LowerElevatorCommand());
 
         addSequential(new CloseClawCommand());
-        addParallel(new MoveArmUpCommand());
-        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        addSequential(new LiftElevatorCommand());
+        addSequential(new WaitCommand(0.1));
         addSequential(new MoveArmUpCommand());
         addSequential(new OpenClawCommand());
-        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
-    	addParallel(new MoveArmDownCommand());
-    	
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
-    	addSequential(new MoveArmDownCommand());
-
-        addSequential(new CloseClawCommand());
-        addParallel(new MoveArmHalfUpCommand());
+        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
+        addSequential(new LiftElevatorCommand());
+        
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
         addSequential(new LowerElevatorCommand());
-        addSequential(new MoveArmHalfUpCommand());
-        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
+        addSequential(new WaitCommand(0.2));
         addSequential(new LiftElevatorCommand());
-
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
+        
+        addParallel(new MoveArmDownCommand());
+        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
+        addSequential(new MoveArmDownCommand());
+        addSequential(new CloseClawCommand());
+        addSequential(new WaitCommand(0.1));
+        addParallel(new LowerElevatorCommand());
+        addSequential(new MoveArmUpCommand());
+        addSequential(new OpenClawCommand());
+        
+        addSequential(new LiftElevatorCommand());
+        addSequential(new WaitCommand(0.2));
+        addSequential(new UniversalDriveCommand(90, 0, 0.3));
     	
+        
 //    	addSequential(new LowerElevatorCommand());
 //    	addParallel(new MoveArmUpCommand());
 //      addSequential(new UniversalDriveCommand(90, 0, 0.3));
