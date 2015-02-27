@@ -12,7 +12,6 @@ public class UniversalDriveCommand extends Command {
 	private double turnAngle;
 	private double distance;
 	private double speed;
-	private double speedModifier;
 	private boolean isDone;
 
     public UniversalDriveCommand(double turnAngle, double distance, double speed) {
@@ -22,24 +21,49 @@ public class UniversalDriveCommand extends Command {
     	this.turnAngle = turnAngle;
     	this.distance = distance;
     	this.speed = -speed;
-    	this.speedModifier = 0;
     	forwardDistance = 0;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrain.resetEncoders();
+    	if (distance < 0) {
+    		speed = -speed;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
+		
     	if(turnAngle==0){
+<<<<<<< HEAD
     		Robot.driveTrain.moveRightTrain(speed+speedModifier);
     		Robot.driveTrain.moveLeftTrain(speed);
     		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
     		isDone = Math.abs(forwardDistance) >= Math.abs(distance);
+=======
+    		if (distance < 0) {
+        		if(forwardDistance>distance){
+        			isDone = false;
+        		}else{
+        			isDone = true;
+        		}
+    		}
+    		else {
+    			if(forwardDistance<distance){
+        			isDone = false;
+        		}else{
+        			isDone = true;
+        		}
+    		}
+    		
+    		Robot.driveTrain.moveRightTrain(speed);
+    		Robot.driveTrain.moveLeftTrain(speed);
+    		
+>>>>>>> fourpieceauton
     	}else if(turnAngle<0){
-    		Robot.driveTrain.moveRightTrain(speed+speedModifier);
+    		Robot.driveTrain.moveRightTrain(speed);
     		Robot.driveTrain.moveLeftTrain(-speed);
     		if((Robot.driveTrain.getRightEncoderDistance()+Math.abs(Robot.driveTrain.getLeftEncoderDistance()))/2.0 < Robot.driveTrain.getTotalTurnDistance(turnAngle)){
     			isDone = false;
@@ -47,7 +71,7 @@ public class UniversalDriveCommand extends Command {
     			isDone = true;
     		}
     	}else if(turnAngle>0){
-    		Robot.driveTrain.moveLeftTrain(speed+speedModifier);
+    		Robot.driveTrain.moveLeftTrain(speed);
     		Robot.driveTrain.moveRightTrain(-speed);
     		if((Math.abs(Robot.driveTrain.getRightEncoderDistance())+Robot.driveTrain.getLeftEncoderDistance())/2.0 < Robot.driveTrain.getTotalTurnDistance(turnAngle)){
     			isDone = false;
