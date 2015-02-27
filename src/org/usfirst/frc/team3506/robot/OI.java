@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.robot.commands.AutonomousCommandGroup;
+import org.usfirst.frc.team3506.robot.autonomi.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.SaveRecordingCommand;

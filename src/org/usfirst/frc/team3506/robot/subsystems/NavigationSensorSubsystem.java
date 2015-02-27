@@ -3,6 +3,7 @@ package org.usfirst.frc.team3506.robot.subsystems;
 import org.usfirst.frc.team3506.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -10,13 +11,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class NavigationSensorSubsystem extends Subsystem {
+	private DigitalInput autoSwitch;
 	private Gyro gyro;
 	private AnalogInput distanceSensor;
 	
 	public NavigationSensorSubsystem(){
+		autoSwitch = new DigitalInput(RobotMap.AUTOSWITCHPORT);
 		gyro =  new Gyro(RobotMap.GYRO_PORT);
 		distanceSensor = new AnalogInput(RobotMap.SONAR_SENSOR_PORT);
 	}
+	
+	public boolean autoSwitchState() {
+		return autoSwitch.get();
+	}
+	
 	public double getDistanceFromObstacle(){
 		return convertVoltageToInches(distanceSensor.getVoltage());
 	}

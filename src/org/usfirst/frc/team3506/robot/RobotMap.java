@@ -40,7 +40,7 @@ public class RobotMap {
 	public static final int JOYSTICK_RIGHT_PORT = 2;
 	public static final int JOYSTICK_ARM_PORT = 0;
 	public static final double JOYSTICK_DEADZONE = 0.1;
-	public static final double JOYSTICK_MODIFIER = 0.7;
+	public static final double JOYSTICK_MODIFIER = 0.75;
 	
 	// Robot parameters
 	public static final double ROBOT_DIAMETER_FT = 2.125;
@@ -60,4 +60,5 @@ public class RobotMap {
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 	public static final String COMMANDS_FILE = "/3506/recording.txt";
+	public static final int AUTOSWITCHPORT = 0;
 }

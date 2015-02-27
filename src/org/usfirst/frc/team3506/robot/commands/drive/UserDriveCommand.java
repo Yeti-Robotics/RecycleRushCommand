@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class UserDriveCommand extends Command {
-	private double leftY;
-	private double rightY;
     public UserDriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

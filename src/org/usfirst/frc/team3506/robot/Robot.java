@@ -4,7 +4,8 @@ package org.usfirst.frc.team3506.robot;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.usfirst.frc.team3506.robot.commands.AutonomousCommandGroup;
+import org.usfirst.frc.team3506.robot.autonomi.AutonomousCommandGroup;
+import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
@@ -60,8 +61,7 @@ public class Robot extends IterativeRobot {
 		claw = new ClawSubsystem();
 		compressor = new CompressorSubsystem();
 		elevator = new ElevatorSubsystem();
-		navSensor = new NavigationSensorSubsystem();
-		autonomousCommand = new AutonomousCommandGroup();
+		navSensor = new NavigationSensorSubsystem();\
     	// OI always constructed last
     	oi = new OI();
     	SmartDashboard.putData(new ResetArmEncoderCommand());
@@ -75,15 +75,16 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        //if (autonomousCommand != null) autonomousCommand.start();
+        autonomousCommand = navSensor.autoSwitchState() ? new AutonomousCommandGroup() : new SimpleAutonomousCommandGroup();
+
+        autonomousCommand.start();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        //Scheduler.getInstance().run();
+        Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
@@ -133,9 +134,6 @@ public class Robot extends IterativeRobot {
 			inputs.add(input);
 		}
      }
-     
- 
- 
     
     /**
      * This function is called periodically during test mode

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands;
+package org.usfirst.frc.team3506.robot.autonomi;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
@@ -18,9 +18,9 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 /**
  *
  */
-public class AutonomousCommandGroup extends CommandGroup {
+public class SimpleAutonomousCommandGroup extends CommandGroup {
     
-    public  AutonomousCommandGroup() {
+    public  SimpleAutonomousCommandGroup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -55,30 +55,10 @@ public class AutonomousCommandGroup extends CommandGroup {
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
         addSequential(new LiftElevatorCommand());
         
-        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        addSequential(new LowerElevatorCommand());
-        addSequential(new WaitCommand(0.2));
-        addSequential(new LiftElevatorCommand());
-        
-        addParallel(new MoveArmDownCommand());
-        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
-        addSequential(new MoveArmDownCommand());
-        addSequential(new CloseClawCommand());
-        addSequential(new WaitCommand(0.1));
-        addParallel(new LowerElevatorCommand());
-        addSequential(new MoveArmUpCommand());
-        addSequential(new OpenClawCommand());
-        
-        addSequential(new LiftElevatorCommand());
         addSequential(new WaitCommand(0.2));
         addSequential(new UniversalDriveCommand(90, 0, 0.3));
-    	
-        
-//    	addSequential(new LowerElevatorCommand());
-//    	addParallel(new MoveArmUpCommand());
-//      addSequential(new UniversalDriveCommand(90, 0, 0.3));
-//    	addSequential(new MoveArmUpCommand());
-//    	addSequential(new UniversalDriveCommand(0, /*placeholder*/3, 0.3));
-//    	addSequential(new UniversalDriveCommand(0, /*placeholder*/-2, -0.3));
+    	addSequential(new UniversalDriveCommand(0, 7, 0.3));
+    	addSequential(new LowerElevatorCommand());
+    	addSequential(new UniversalDriveCommand(0, -3, 0.3));
     }
 }
