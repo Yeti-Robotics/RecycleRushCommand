@@ -60,9 +60,6 @@ public class Robot extends IterativeRobot {
 		claw = new ClawSubsystem();
 		compressor = new CompressorSubsystem();
 		elevator = new ElevatorSubsystem();
-		camera = CameraServer.getInstance();
-		camera.setQuality(50);
-		camera.startAutomaticCapture("cam0");
 		navSensor = new NavigationSensorSubsystem();
 		autonomousCommand = new AutonomousCommandGroup();
     	// OI always constructed last
@@ -79,14 +76,14 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        //if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        //Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
@@ -135,9 +132,6 @@ public class Robot extends IterativeRobot {
 		if (recording) {
 			inputs.add(input);
 		}
-		/*if (!camera.isAutoCaptureStarted()) {
-			camera.startAutomaticCapture("cam0");
-		}*/
      }
      
  
