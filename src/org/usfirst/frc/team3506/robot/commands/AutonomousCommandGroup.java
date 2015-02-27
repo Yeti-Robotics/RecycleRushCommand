@@ -59,18 +59,6 @@ public class AutonomousCommandGroup extends CommandGroup {
         addSequential(new LowerElevatorCommand());
         addSequential(new WaitCommand(0.2));
         addSequential(new LiftElevatorCommand());
-<<<<<<< HEAD
-        addSequential(new UniversalDriveCommand(0, 0.1, 0.1));
-
-    	addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        addSequential(new LowerElevatorCommand());
-    	addParallel(new MoveArmUpCommand());
-    	
-    	addSequential(new UniversalDriveCommand(90, 0, 0.3));
-    	addSequential(new MoveArmUpCommand());
-    	addSequential(new UniversalDriveCommand(0, 7, 0.3));
-    	addSequential(new UniversalDriveCommand(0, -3, -0.3));
-=======
         
         addParallel(new MoveArmDownCommand());
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
@@ -92,6 +80,5 @@ public class AutonomousCommandGroup extends CommandGroup {
 //    	addSequential(new MoveArmUpCommand());
 //    	addSequential(new UniversalDriveCommand(0, /*placeholder*/3, 0.3));
 //    	addSequential(new UniversalDriveCommand(0, /*placeholder*/-2, -0.3));
->>>>>>> fourpieceauton
     }
 }

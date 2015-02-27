@@ -4,7 +4,6 @@ import org.usfirst.frc.team3506.robot.commands.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.SaveRecordingCommand;
-import org.usfirst.frc.team3506.robot.commands.ToggleDriveModeCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmHalfUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
@@ -60,7 +59,6 @@ public class OI {
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
 		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
 		setJoystickButtonCommand(rightDriveJoy, 11, new MoveArmHalfUpCommand());
-		setJoystickButtonCommand(rightDriveJoy, 1, new ToggleDriveModeCommand());
 		
 		// Arm Joystick
 		setJoystickButtonCommand(armJoy, 2, new CloseClawCommand());

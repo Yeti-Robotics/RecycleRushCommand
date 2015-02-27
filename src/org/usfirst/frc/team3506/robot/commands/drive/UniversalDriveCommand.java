@@ -37,12 +37,6 @@ public class UniversalDriveCommand extends Command {
 		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
 		
     	if(turnAngle==0){
-<<<<<<< HEAD
-    		Robot.driveTrain.moveRightTrain(speed+speedModifier);
-    		Robot.driveTrain.moveLeftTrain(speed);
-    		forwardDistance = (Robot.driveTrain.getLeftEncoderDistance()+Robot.driveTrain.getRightEncoderDistance())/2.0;
-    		isDone = Math.abs(forwardDistance) >= Math.abs(distance);
-=======
     		if (distance < 0) {
         		if(forwardDistance>distance){
         			isDone = false;
@@ -61,7 +55,6 @@ public class UniversalDriveCommand extends Command {
     		Robot.driveTrain.moveRightTrain(speed);
     		Robot.driveTrain.moveLeftTrain(speed);
     		
->>>>>>> fourpieceauton
     	}else if(turnAngle<0){
     		Robot.driveTrain.moveRightTrain(speed);
     		Robot.driveTrain.moveLeftTrain(-speed);
