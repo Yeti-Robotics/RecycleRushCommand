@@ -13,6 +13,7 @@ public class TurnForwardBeltCommand extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.claw);
+    	setTimeout(0.2);
     }
 
     // Called just before this Command runs the first time
