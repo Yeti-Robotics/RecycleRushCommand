@@ -8,9 +8,9 @@ package org.usfirst.frc.team3506.robot;
 public class RobotMap {
 	
 	// Encoder ports ()
-	public static final int[] ENCODER_LEFT_DRIVE_TRAIN_PORT = {3,4};
-	public static final int[] ENCODER_RIGHT_DRIVE_TRAIN_PORT = {5,6};
-	public static final int[] ENCODER_ARM_LEFT = {7,8};
+	public static final int[] ENCODER_LEFT_DRIVE_TRAIN_PORT = {4,5};
+	public static final int[] ENCODER_RIGHT_DRIVE_TRAIN_PORT = {2,3};
+	public static final int[] ENCODER_ARM_LEFT = {6,7};
 	public static final int[] ENCODER_ARM_RIGHT = {0,1};
 	public static final double DISTANCE_PER_PULSE = 0.006;
 	// Distance per pulse = (Cicumference)/[(TICKS PER SECOND)*(TIME FOR 1 REVOLUTION)]
@@ -54,9 +54,9 @@ public class RobotMap {
 	public static final double CAN_PICKUP_VOLTAGE = 0.18;
 	
 	// Info for saving arm encoder position
-	public static final double MIN_ARM_DISTANCE = -360.0;
-	public static final double MAX_ARM_DISTANCE = -10.0;
-	public static final double DEFAULT_ARM_SPEED = 0.4;
+	public static final int MIN_ARM_DISTANCE = -350;
+	public static final int MAX_ARM_DISTANCE = -10;
+	public static final double DEFAULT_ARM_SPEED = 0.5;
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 	public static final String COMMANDS_FILE = "/3506/recording.txt";

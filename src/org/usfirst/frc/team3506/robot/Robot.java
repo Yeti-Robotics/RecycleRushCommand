@@ -124,6 +124,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         driveTrain.logEncoder();
+        
         arm.log();
         if (!playing) {
 			input = new RobotInput();

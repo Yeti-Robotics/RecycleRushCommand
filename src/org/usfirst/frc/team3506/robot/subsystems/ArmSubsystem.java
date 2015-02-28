@@ -27,8 +27,12 @@ public class ArmSubsystem extends Subsystem {
     	leftArm.set(speed);
     	rightArm.set(-speed);
     }
-    public double getArmEncoderDistance(){
-    	return armEncoderRight.getDistance();
+    public void stopArm() {
+    	leftArm.stopMotor();
+    	rightArm.stopMotor();
+    }
+    public int getArmEncoderDistance(){
+    	return armEncoderLeft.get();
     }
     public void resetArmEncoder(){
     	armEncoderLeft.reset();
@@ -41,8 +45,8 @@ public class ArmSubsystem extends Subsystem {
     	return armPosition;
     }
     public void log(){
-    		SmartDashboard.putData("Arm Encoder Left", armEncoderLeft);
-    		SmartDashboard.putData("Arm Encoder Right", armEncoderRight);
+    		SmartDashboard.putNumber("Arm Encoder Left", armEncoderLeft.get());
+    		SmartDashboard.putNumber("Arm Encoder Right", armEncoderRight.get());
     }
     public void initDefaultCommand() {
     	setDefaultCommand(new OperateArmCommand());
