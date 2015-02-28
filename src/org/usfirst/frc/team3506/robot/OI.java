@@ -64,11 +64,11 @@ public class OI {
 		setJoystickButtonCommand(armJoy, 2, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 3, new OpenClawCommand());
 		setJoystickButtonCommand(armJoy, 1, new ResetArmEncoderCommand());
-		setJoystickButtonCommand(armJoy, 6, new MoveArmUpCommand());
-		setJoystickButtonCommand(armJoy, 7, new MoveArmDownCommand());
-		setJoystickButtonCommand(armJoy, 11, new TurnForwardBeltCommand());
-		setJoystickButtonCommand(armJoy, 10, new TurnReverseBeltCommand());
-		setJoystickButtonCommand(armJoy, 9, new TurnOffBeltCommand());
+		setJoystickButtonCommand(armJoy, 11, new MoveArmUpCommand());
+		setJoystickButtonCommand(armJoy, 10, new MoveArmDownCommand());
+		setJoystickButtonCommand(armJoy, 6, new TurnForwardBeltCommand());
+		setJoystickButtonCommand(armJoy, 7, new TurnReverseBeltCommand());
+		setJoystickButtonCommand(armJoy, 8, new TurnOffBeltCommand());
 	}
 	public double getLeftX() {
 		return deadZoneMod(leftDriveJoy.getX());

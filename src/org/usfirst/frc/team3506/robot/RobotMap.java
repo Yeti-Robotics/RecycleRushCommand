@@ -54,11 +54,11 @@ public class RobotMap {
 	public static final double CAN_PICKUP_VOLTAGE = 0.18;
 	
 	// Info for saving arm encoder position
-	public static final double MIN_ARM_DISTANCE = -380.0;
+	public static final double MIN_ARM_DISTANCE = -360.0;
 	public static final double MAX_ARM_DISTANCE = -10.0;
 	public static final double DEFAULT_ARM_SPEED = 0.4;
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 	public static final String COMMANDS_FILE = "/3506/recording.txt";
-	public static final int AUTOSWITCHPORT = 0;
+	public static final int AUTOSWITCHPORT = 9;
 }

@@ -52,11 +52,12 @@ public class SimpleAutonomousCommandGroup extends CommandGroup {
         addSequential(new WaitCommand(0.1));
         addSequential(new MoveArmUpCommand());
         addSequential(new OpenClawCommand());
-        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
+        addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.5));
         addSequential(new LiftElevatorCommand());
         
-        addSequential(new WaitCommand(0.2));
-        addSequential(new UniversalDriveCommand(90, 0, 0.3));
+        addSequential(new WaitCommand(0.3));
+        addParallel(new UniversalDriveCommand(90, 0, 0.3));
+        addSequential(new WaitCommand(1));
     	addSequential(new UniversalDriveCommand(0, 7, 0.3));
     	addSequential(new LowerElevatorCommand());
     	addSequential(new UniversalDriveCommand(0, -3, 0.3));

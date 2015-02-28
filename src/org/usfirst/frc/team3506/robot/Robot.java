@@ -9,6 +9,9 @@ import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilDistanceAwayCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilElapsedTimeCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
@@ -16,12 +19,9 @@ import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
 //import org.yetirobotics.frc.team3506.robot.RobotMap;
-
 import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
 
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -45,7 +45,6 @@ public class Robot extends IterativeRobot {
 	public static boolean recording = false;
 	public static boolean playing = false;
 	public static RobotInput input;
-	public static CameraServer camera;
 //	public static RobotInput previousInput = new RobotInput();
 	public static List<RobotInput> inputs = new ArrayList<RobotInput>();
 
@@ -61,7 +60,7 @@ public class Robot extends IterativeRobot {
 		claw = new ClawSubsystem();
 		compressor = new CompressorSubsystem();
 		elevator = new ElevatorSubsystem();
-		navSensor = new NavigationSensorSubsystem();\
+		navSensor = new NavigationSensorSubsystem();
     	// OI always constructed last
     	oi = new OI();
     	SmartDashboard.putData(new ResetArmEncoderCommand());
@@ -75,8 +74,9 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        autonomousCommand = navSensor.autoSwitchState() ? new AutonomousCommandGroup() : new SimpleAutonomousCommandGroup();
-
+        autonomousCommand = /*navSensor.autoSwitchState() ? new AutonomousCommandGroup() :*/ new DriveUntilElapsedTimeCommand(1.5, 0.3);
+        
+        
         autonomousCommand.start();
     }
 
@@ -84,7 +84,10 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        SmartDashboard.putBoolean("switch state",navSensor.autoSwitchState());
+        SmartDashboard.putString("Autocommand running", autonomousCommand.getName());
+        SmartDashboard.putNumber("sensor voltage", navSensor.getDistanceFromObstacle());
+    	Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
