@@ -74,7 +74,7 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        autonomousCommand = /*navSensor.autoSwitchState() ? new AutonomousCommandGroup() :*/ new DriveUntilElapsedTimeCommand(1.5, 0.3);
+        autonomousCommand = /*navSensor.autoSwitchState() ? new AutonomousCommandGroup() :*/ new SimpleAutonomousCommandGroup();
         
         
         autonomousCommand.start();

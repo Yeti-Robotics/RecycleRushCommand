@@ -8,6 +8,7 @@ import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilDistanceAwayCommand;
+import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilElapsedTimeCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.elevator.LowerElevatorCommand;
@@ -49,7 +50,9 @@ public class SimpleAutonomousCommandGroup extends CommandGroup {
     	addSequential(new LowerElevatorCommand());
 
         addSequential(new CloseClawCommand());
-        addSequential(new WaitCommand(0.1));
+        addSequential(new MoveArmUpCommand());
+        
+        /*addSequential(new WaitCommand(0.1));
         addSequential(new MoveArmUpCommand());
         addSequential(new OpenClawCommand());
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.5));
@@ -58,8 +61,11 @@ public class SimpleAutonomousCommandGroup extends CommandGroup {
         addSequential(new WaitCommand(0.3));
         addParallel(new UniversalDriveCommand(90, 0, 0.3));
         addSequential(new WaitCommand(1));
-    	addSequential(new UniversalDriveCommand(0, 7, 0.3));
-    	addSequential(new LowerElevatorCommand());
-    	addSequential(new UniversalDriveCommand(0, -3, 0.3));
+//    	addSequential(new UniversalDriveCommand(0, 7, 0.3));
+        addSequential(new DriveUntilElapsedTimeCommand(3, 0.5));
+    	addSequential(new LowerElevatorCommand());*/
+//    	addSequential(new UniversalDriveCommand(0, -3, 0.3));
+        addSequential(new DriveUntilElapsedTimeCommand(1.35, -0.3));
+        
     }
 }
