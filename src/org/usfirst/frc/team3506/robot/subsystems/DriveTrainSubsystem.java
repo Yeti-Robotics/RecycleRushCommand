@@ -52,6 +52,14 @@ public class DriveTrainSubsystem extends Subsystem {
 		rightEncoder.reset();
 	}
 	
+	public Encoder getLeftEncoder() {
+		return leftEncoder;
+	}
+	
+	public Encoder getRightEncoder() {
+		return rightEncoder;
+	}
+	
 	public double getLeftEncoderDistance(){
 		return leftEncoder.getDistance();
 	}

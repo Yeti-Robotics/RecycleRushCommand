@@ -60,5 +60,5 @@ public class RobotMap {
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 	public static final String COMMANDS_FILE = "/3506/recording.txt";
-	public static final int AUTOSWITCHPORT = 9;
+	public static final int AUTOSWITCHPORT = 8;
 }

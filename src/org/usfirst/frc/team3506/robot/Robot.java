@@ -96,7 +96,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        SmartDashboard.putData(new RecordCommand());
+        SmartDashboard.putData("Left Drive Encoder", driveTrain.getLeftEncoder());
+        SmartDashboard.putData("Right Drive Encoder", driveTrain.getRightEncoder());
+        /*SmartDashboard.putData(new RecordCommand());
         SmartDashboard.putData("Load recording", new LoadRecordingCommand());
         SmartDashboard.putBoolean("Is Recording", recording);
 		SmartDashboard.putData("Gyro", navSensor.getGyro());
@@ -107,7 +109,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Inputs", inputs.size());
 		SmartDashboard.putData("Gyro", navSensor.getGyro());
 		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
-		SmartDashboard.putNumber("Arm Encoder", arm.getArmEncoderDistance());
+		SmartDashboard.putNumber("Arm Encoder", arm.getArmEncoderDistance());*/
     }
 
     /**
