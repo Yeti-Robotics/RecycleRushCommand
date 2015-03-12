@@ -20,6 +20,10 @@ public class ClawSubsystem extends Subsystem {
     	claw1 = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);
     	beltMotor = new Relay(RobotMap.SPIKE_CLAW_BELT_PORT);
     }
+    @Override
+    protected void initDefaultCommand() {
+    	
+    }
     public void closeClaw(){
     	claw1.set(Value.kReverse);
     	claw2.set(Value.kForward);
@@ -37,9 +41,6 @@ public class ClawSubsystem extends Subsystem {
     public void setBeltMotorOff(){
     		beltMotor.set(Relay.Value.kOff);
     }
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
 }
+
 

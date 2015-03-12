@@ -20,6 +20,8 @@ public class NavigationSensorSubsystem extends Subsystem {
 		gyro =  new Gyro(RobotMap.GYRO_PORT);
 		distanceSensor = new AnalogInput(RobotMap.SONAR_SENSOR_PORT);
 	}
+    public void initDefaultCommand() {
+    }
 	
 	public boolean autoSwitchState() {
 		return autoSwitch.get();
@@ -43,9 +45,6 @@ public class NavigationSensorSubsystem extends Subsystem {
 	public void resetGyro(){
 		gyro.reset();
 	}
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
+
 }
 

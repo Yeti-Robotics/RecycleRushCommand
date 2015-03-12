@@ -2,7 +2,6 @@ package org.usfirst.frc.team3506.robot.autonomi;
 
 import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
-import org.usfirst.frc.team3506.robot.commands.arm.MoveArmHalfUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;

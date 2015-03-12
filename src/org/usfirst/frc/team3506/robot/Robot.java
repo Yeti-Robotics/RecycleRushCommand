@@ -4,21 +4,14 @@ package org.usfirst.frc.team3506.robot;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.usfirst.frc.team3506.robot.autonomi.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
-import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
-import org.usfirst.frc.team3506.robot.commands.RecordCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
-import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilDistanceAwayCommand;
-import org.usfirst.frc.team3506.robot.commands.drive.DriveUntilElapsedTimeCommand;
-import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
-//import org.yetirobotics.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.subsystems.NavigationSensorSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -45,7 +38,6 @@ public class Robot extends IterativeRobot {
 	public static boolean recording = false;
 	public static boolean playing = false;
 	public static RobotInput input;
-//	public static RobotInput previousInput = new RobotInput();
 	public static List<RobotInput> inputs = new ArrayList<RobotInput>();
 
     Command autonomousCommand;
@@ -98,18 +90,6 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
         SmartDashboard.putData("Left Drive Encoder", driveTrain.getLeftEncoder());
         SmartDashboard.putData("Right Drive Encoder", driveTrain.getRightEncoder());
-        /*SmartDashboard.putData(new RecordCommand());
-        SmartDashboard.putData("Load recording", new LoadRecordingCommand());
-        SmartDashboard.putBoolean("Is Recording", recording);
-		SmartDashboard.putData("Gyro", navSensor.getGyro());
-		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
-		SmartDashboard.putNumber("Left Drive Encoder", driveTrain.getLeftEncoderDistance());
-		SmartDashboard.putNumber("Right Drive Encoder", driveTrain.getRightEncoderDistance());
-		SmartDashboard.putBoolean("Recording", recording);
-		SmartDashboard.putNumber("Inputs", inputs.size());
-		SmartDashboard.putData("Gyro", navSensor.getGyro());
-		SmartDashboard.putNumber("Sonar", navSensor.getSonarVoltage());
-		SmartDashboard.putNumber("Arm Encoder", arm.getArmEncoderDistance());*/
     }
 
     /**
@@ -117,7 +97,6 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-    	/*new SaveArmEncoderPositionCommand().start();*/
     }
 
     /**
