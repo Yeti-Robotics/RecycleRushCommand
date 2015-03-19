@@ -56,7 +56,7 @@ public class RobotMap {
 	// Info for saving arm encoder position
 	public static final int MIN_ARM_DISTANCE = -350;
 	public static final int MAX_ARM_DISTANCE = -10;
-	public static final double DEFAULT_ARM_SPEED = 0.5;
+	public static final double DEFAULT_ARM_SPEED = 0.7;
 	
 	public static final int NUMBER_OF_JOYSTICK_BUTTONS = 11;
 	public static final String COMMANDS_FILE = "/3506/recording.txt";
