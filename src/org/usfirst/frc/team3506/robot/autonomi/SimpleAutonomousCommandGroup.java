@@ -43,7 +43,7 @@ public class SimpleAutonomousCommandGroup extends CommandGroup {
 
         addSequential(new CloseClawCommand());
         addSequential(new MoveArmUpCommand());
-        addSequential(new DriveUntilElapsedTimeCommand(1.35, -0.3));
+        addSequential(new DriveUntilElapsedTimeCommand(1.55, -0.3));
         
     }
 }
