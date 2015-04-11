@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.canPole.ExtendCanPoleCommand;
+import org.usfirst.frc.team3506.canPole.RetractCanPoleCommand;
 import org.usfirst.frc.team3506.robot.autonomi.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
@@ -54,8 +56,8 @@ public class OI {
 		setJoystickButtonCommand(leftDriveJoy, 10, new AutonomousCommandGroup());
 
 		// Right Drive Joystick
-		setJoystickButtonCommand(rightDriveJoy, 3, new LiftElevatorCommand());
-		setJoystickButtonCommand(rightDriveJoy, 2, new LowerElevatorCommand());
+		setJoystickButtonCommand(rightDriveJoy, 3, new ExtendCanPoleCommand());
+		setJoystickButtonCommand(rightDriveJoy, 2, new RetractCanPoleCommand());
 		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
 		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
 		setJoystickButtonCommand(rightDriveJoy, 11, new MoveArmHalfUpCommand());

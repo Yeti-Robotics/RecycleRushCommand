@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LowerElevatorDriveForwardCommandGroup extends CommandGroup {
+public class LowerCanPoleDriveForwardCommandGroup extends CommandGroup {
     
-    public  LowerElevatorDriveForwardCommandGroup() {
+    public  LowerCanPoleDriveForwardCommandGroup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

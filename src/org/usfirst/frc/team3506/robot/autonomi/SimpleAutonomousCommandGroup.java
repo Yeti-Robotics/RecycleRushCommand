@@ -39,7 +39,7 @@ public class SimpleAutonomousCommandGroup extends CommandGroup {
     	 */
     	
     	addSequential(new ResetArmEncoderCommand());
-    	addSequential(new LowerElevatorCommand());
+    	addSequential(new LowerElevatorCommand()); //This controls the can pole now
 
         addSequential(new CloseClawCommand());
         addSequential(new MoveArmUpCommand());

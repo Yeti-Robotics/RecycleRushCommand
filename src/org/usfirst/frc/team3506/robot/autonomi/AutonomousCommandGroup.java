@@ -45,19 +45,19 @@ public class AutonomousCommandGroup extends CommandGroup {
     	 */
     	
     	addSequential(new ResetArmEncoderCommand());
-    	addSequential(new LowerElevatorCommand());
+    	addSequential(new LowerElevatorCommand()); //This controls the can pole now
 
         addSequential(new CloseClawCommand());
         addSequential(new WaitCommand(0.1));
         addSequential(new MoveArmUpCommand());
         addSequential(new OpenClawCommand());
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        addSequential(new LiftElevatorCommand());
+        addSequential(new LiftElevatorCommand()); //This controls the can pole now
         
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.TOTE_PICKUP_VOLTAGE, 0.3));
-        addSequential(new LowerElevatorCommand());
+        addSequential(new LowerElevatorCommand()); //This controls the can pole now
         addSequential(new WaitCommand(0.2));
-        addSequential(new LiftElevatorCommand());
+        addSequential(new LiftElevatorCommand()); //This controls the can pole now
         
         addParallel(new MoveArmDownCommand());
         addSequential(new DriveUntilDistanceAwayCommand(RobotMap.CAN_PICKUP_VOLTAGE, 0.3));
@@ -68,11 +68,11 @@ public class AutonomousCommandGroup extends CommandGroup {
         addSequential(new MoveArmUpCommand());
         addSequential(new OpenClawCommand());
         
-        addSequential(new LiftElevatorCommand());
+        addSequential(new LiftElevatorCommand()); //This controls the can pole now
         addSequential(new WaitCommand(0.2));
         addSequential(new UniversalDriveCommand(90, 0, 0.3));
     	addSequential(new UniversalDriveCommand(0, 7, 0.3));
-    	addSequential(new LowerElevatorCommand());
+    	addSequential(new LowerElevatorCommand()); //This controls the can pole now
     	addSequential(new UniversalDriveCommand(0, -3, 0.3));
     }
 }

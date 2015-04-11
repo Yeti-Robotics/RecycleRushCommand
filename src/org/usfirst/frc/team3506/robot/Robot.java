@@ -4,6 +4,7 @@ package org.usfirst.frc.team3506.robot;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.usfirst.frc.team3506.robot.autonomi.LowerCanPoleDriveForwardCommandGroup;
 import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
@@ -69,7 +70,7 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        autonomousCommand = /*navSensor.autoSwitchState() ? new AutonomousCommandGroup() :*/ new SimpleAutonomousCommandGroup();
+        autonomousCommand = new LowerCanPoleDriveForwardCommandGroup();
         
         
         autonomousCommand.start();
