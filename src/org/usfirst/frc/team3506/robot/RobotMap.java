@@ -23,6 +23,7 @@ public class RobotMap {
 	public static final int[] SOLENOID_RIGHT_CLAW_PORT = {2,3};
 	public static final int[] SOLENOID_LIFTER_PORT1 = {4,5};
 	public static final int[] SOLENOID_LIFTER_PORT2 = {6,7};
+	public static final int[] SOLENOID_CAN_POLE_PORT = {};
 	
 	// Talon ports (PWM)
 	public static final int TALON_LEFT_FRONT_WHEEL_PORT = 5;

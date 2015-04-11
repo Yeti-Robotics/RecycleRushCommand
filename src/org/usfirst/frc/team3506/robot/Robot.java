@@ -8,6 +8,7 @@ import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.CanPoleSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ClawSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsystem;
@@ -35,6 +36,7 @@ public class Robot extends IterativeRobot {
 	public static CompressorSubsystem compressor;
 	public static ElevatorSubsystem elevator;
 	public static NavigationSensorSubsystem navSensor;
+	public static CanPoleSubsystem canPole;
 	public static boolean recording = false;
 	public static boolean playing = false;
 	public static RobotInput input;
@@ -53,6 +55,7 @@ public class Robot extends IterativeRobot {
 		compressor = new CompressorSubsystem();
 		elevator = new ElevatorSubsystem();
 		navSensor = new NavigationSensorSubsystem();
+		canPole = new CanPoleSubsystem();
     	// OI always constructed last
     	oi = new OI();
     	SmartDashboard.putData(new ResetArmEncoderCommand());
