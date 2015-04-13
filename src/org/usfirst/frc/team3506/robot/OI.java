@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3506.robot;
 
-import org.usfirst.frc.team3506.canPole.ExtendCanPoleCommand;
-import org.usfirst.frc.team3506.canPole.RetractCanPoleCommand;
 import org.usfirst.frc.team3506.robot.autonomi.AutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.LoadRecordingCommand;
 import org.usfirst.frc.team3506.robot.commands.RecordCommand;
@@ -10,6 +8,8 @@ import org.usfirst.frc.team3506.robot.commands.arm.MoveArmDownCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmHalfUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.MoveArmUpCommand;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.canPole.ExtendCanPoleCommand;
+import org.usfirst.frc.team3506.robot.commands.canPole.RetractCanPoleCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.CloseClawCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.OpenClawCommand;
 import org.usfirst.frc.team3506.robot.commands.claw.TurnForwardBeltCommand;

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.canPole;
+package org.usfirst.frc.team3506.robot.commands.canPole;
 
 import org.usfirst.frc.team3506.robot.Robot;
 

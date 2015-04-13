@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3506.robot.autonomi;
 
-import org.usfirst.frc.team3506.canPole.ExtendCanPoleCommand;
+import org.usfirst.frc.team3506.robot.commands.canPole.ExtendCanPoleCommand;
 import org.usfirst.frc.team3506.robot.commands.drive.UniversalDriveCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
