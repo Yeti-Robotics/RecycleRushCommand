@@ -5,6 +5,7 @@ import org.usfirst.frc.team3506.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,12 +14,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ClawSubsystem extends Subsystem {
     
     private DoubleSolenoid claw2, claw1;
-    private Relay beltMotor;
+    private Talon beltMotor;
     
     public ClawSubsystem(){
     	claw2 = new DoubleSolenoid(RobotMap.SOLENOID_RIGHT_CLAW_PORT[0], RobotMap.SOLENOID_RIGHT_CLAW_PORT[1]);
     	claw1 = new DoubleSolenoid(RobotMap.SOLENOID_LEFT_CLAW_PORT[0], RobotMap.SOLENOID_LEFT_CLAW_PORT[1]);
-    	beltMotor = new Relay(RobotMap.SPIKE_CLAW_BELT_PORT);
+    	beltMotor = new Talon(RobotMap.SPIKE_CLAW_BELT_PORT);
     }
     @Override
     protected void initDefaultCommand() {
@@ -33,13 +34,13 @@ public class ClawSubsystem extends Subsystem {
     	claw2.set(Value.kReverse);
     }
     public void setBeltMotorForward(){
-    		beltMotor.set(Relay.Value.kReverse);
+    		beltMotor.set(-1);
     }
     public void setBeltMotorReverse(){
-    		beltMotor.set(Relay.Value.kForward);
+    		beltMotor.set(1);
     }
     public void setBeltMotorOff(){
-    		beltMotor.set(Relay.Value.kOff);
+    		beltMotor.set(0);
     }
 }
 

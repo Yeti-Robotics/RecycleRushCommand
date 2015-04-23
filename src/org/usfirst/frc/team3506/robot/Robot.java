@@ -7,6 +7,7 @@ import java.util.List;
 import org.usfirst.frc.team3506.robot.autonomi.LowerCanPoleDriveForwardCommandGroup;
 import org.usfirst.frc.team3506.robot.autonomi.SimpleAutonomousCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.arm.ResetArmEncoderCommand;
+import org.usfirst.frc.team3506.robot.commands.canPole.RetractCanPoleCommand;
 import org.usfirst.frc.team3506.robot.domain.RobotInput;
 import org.usfirst.frc.team3506.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.CanPoleSubsystem;

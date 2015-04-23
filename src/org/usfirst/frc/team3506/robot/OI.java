@@ -58,16 +58,16 @@ public class OI {
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 3, new ExtendCanPoleCommand());
 		setJoystickButtonCommand(rightDriveJoy, 2, new RetractCanPoleCommand());
-		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
-		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
-		setJoystickButtonCommand(rightDriveJoy, 11, new MoveArmHalfUpCommand());
+//		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
+//		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
+//		setJoystickButtonCommand(rightDriveJoy, 11, new MoveArmHalfUpCommand());
 		
 		// Arm Joystick
 		setJoystickButtonCommand(armJoy, 2, new CloseClawCommand());
 		setJoystickButtonCommand(armJoy, 3, new OpenClawCommand());
-		setJoystickButtonCommand(armJoy, 1, new ResetArmEncoderCommand());
-		setJoystickButtonCommand(armJoy, 11, new MoveArmUpCommand());
-		setJoystickButtonCommand(armJoy, 10, new MoveArmDownCommand());
+//		setJoystickButtonCommand(armJoy, 1, new ResetArmEncoderCommand());
+//		setJoystickButtonCommand(armJoy, 11, new MoveArmUpCommand());
+//		setJoystickButtonCommand(armJoy, 10, new MoveArmDownCommand());
 		setJoystickButtonCommand(armJoy, 6, new TurnForwardBeltCommand());
 		setJoystickButtonCommand(armJoy, 7, new TurnReverseBeltCommand());
 		setJoystickButtonCommand(armJoy, 8, new TurnOffBeltCommand());
