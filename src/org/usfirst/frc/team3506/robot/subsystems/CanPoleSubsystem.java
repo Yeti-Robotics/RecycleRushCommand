@@ -14,7 +14,7 @@ public class CanPoleSubsystem extends Subsystem {
 	private DoubleSolenoid piston1, piston2;
 
 	public CanPoleSubsystem() {
-    	piston1 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT1[0], RobotMap.SOLENOID_CAN_POLE_PORT1[1]);
+    	//piston1 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT1[0], RobotMap.SOLENOID_CAN_POLE_PORT1[1]);
         piston2 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT2[0], RobotMap.SOLENOID_CAN_POLE_PORT2[1]);
 	}
 	
@@ -22,12 +22,12 @@ public class CanPoleSubsystem extends Subsystem {
     }
     
     public void extendPole() {
-    	piston1.set(Value.kForward);
+    	//piston1.set(Value.kForward);
     	piston2.set(Value.kForward);
     }
     
     public void retractPole() {
-    	piston1.set(Value.kReverse);
+    	//piston1.set(Value.kReverse);
     	piston2.set(Value.kReverse);
     }
 }

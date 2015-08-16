@@ -13,15 +13,15 @@ public class ElevatorSubsystem extends Subsystem {
     DoubleSolenoid lifter1, lifter2;
     public ElevatorSubsystem(){
     	lifter1 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT1[0], RobotMap.SOLENOID_CAN_POLE_PORT1[1]);
-    	lifter2 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT2[0], RobotMap.SOLENOID_CAN_POLE_PORT2[1]);
+    	//lifter2 = new DoubleSolenoid(RobotMap.SOLENOID_CAN_POLE_PORT2[0], RobotMap.SOLENOID_CAN_POLE_PORT2[1]);
     }
     public void liftElevator(){
     	lifter1.set(Value.kReverse);
-    	lifter2.set(Value.kReverse);
+    	//lifter2.set(Value.kReverse);
     }
     public void lowerElevator(){
     	lifter1.set(Value.kForward);
-    	lifter2.set(Value.kForward);
+    	//lifter2.set(Value.kForward);
     }
     public void initDefaultCommand() {
     }

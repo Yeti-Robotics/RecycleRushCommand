@@ -58,6 +58,8 @@ public class OI {
 		// Right Drive Joystick
 		setJoystickButtonCommand(rightDriveJoy, 3, new ExtendCanPoleCommand());
 		setJoystickButtonCommand(rightDriveJoy, 2, new RetractCanPoleCommand());
+		setJoystickButtonCommand(rightDriveJoy, 4, new LiftElevatorCommand());
+		setJoystickButtonCommand(rightDriveJoy, 1, new LowerElevatorCommand());
 //		setJoystickButtonCommand(rightDriveJoy, 9, new UniversalDriveCommand(90, 0, 0.1));
 //		setJoystickButtonCommand(rightDriveJoy, 10, new UniversalDriveCommand(0, 3, 0.2));
 //		setJoystickButtonCommand(rightDriveJoy, 11, new MoveArmHalfUpCommand());
